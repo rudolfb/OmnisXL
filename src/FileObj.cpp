@@ -47,7 +47,7 @@ std::wstring NVObjWorkbook::licenseKey;
  **************************************************************************************************/
 
 NVObjWorkbook::NVObjWorkbook(qobjinst qo, tThreadData *pThreadData) : NVObjBase(qo), fileType(XLS_FORMAT)
-{ 
+{
 	initialize();
 }
 
@@ -238,7 +238,7 @@ qlong NVObjWorkbook::canAssignProperty( tThreadData* pThreadData, qlong propID )
 }
 
 // Method to retrieve a property of the object
-qlong NVObjWorkbook::getProperty( tThreadData* pThreadData ) 
+qlong NVObjWorkbook::getProperty( tThreadData* pThreadData )
 {
 	EXTfldval fValReturn;
 	if (!book) {
@@ -259,17 +259,17 @@ qlong NVObjWorkbook::getProperty( tThreadData* pThreadData )
 			break;
 		case cWBPropertySheetCount:
 			longConv = static_cast<qlong>(book->sheetCount());
-			fValReturn.setLong(longConv); 
+			fValReturn.setLong(longConv);
 			ECOaddParam(pThreadData->mEci, &fValReturn);
 			break;
 		case cWBPropertyFormatSize:
 			longConv = static_cast<qlong>(book->formatSize());
-			fValReturn.setLong(longConv); 
+			fValReturn.setLong(longConv);
 			ECOaddParam(pThreadData->mEci, &fValReturn);
 			break;
 		case cWBPropertyFontSize:
 			longConv = static_cast<qlong>(book->fontSize());
-			fValReturn.setLong(longConv); 
+			fValReturn.setLong(longConv);
 			ECOaddParam(pThreadData->mEci, &fValReturn);
 			break;
 		case cWBPropertyActiveSheet:
@@ -278,7 +278,7 @@ qlong NVObjWorkbook::getProperty( tThreadData* pThreadData )
 			} else {
 				longConv = 0;
 			}
-			fValReturn.setLong(longConv); 
+			fValReturn.setLong(longConv);
 			ECOaddParam(pThreadData->mEci, &fValReturn);
 			break;
 		case cWBPropertyDefaultFont:
@@ -310,7 +310,7 @@ qlong NVObjWorkbook::setProperty( tThreadData* pThreadData )
 	
 	// Retrieve value to set for property, always in first parameter
 	EXTfldval fVal;
-	if( getParamVar( pThreadData->mEci, 1, fVal) == qfalse ) 
+	if( getParamVar( pThreadData->mEci, 1, fVal) == qfalse )
 		return qfalse;
 	
 	// Variables needed for type conversion
@@ -368,7 +368,7 @@ qlong NVObjWorkbook::setProperty( tThreadData* pThreadData )
 /* METHODS */
 
 // Table of parameter resources and types.
-// Note that all parameters can be stored in this single table and the array offset can be  
+// Note that all parameters can be stored in this single table and the array offset can be
 // passed via the MethodsTable.
 //
 // Columns are:
@@ -376,7 +376,7 @@ qlong NVObjWorkbook::setProperty( tThreadData* pThreadData )
 // 2) Return type (fft value)
 // 3) Parameter flags of type EXTD_FLAG_xxxx
 // 4) Extended flags.  Documentation states, "Must be 0"
-ECOparam cWorkbookMethodsParamsTable[] = 
+ECOparam cWorkbookMethodsParamsTable[] =
 {
 	// $initialize
 	2900, fftInteger,   EXTD_FLAG_PARAMOPT, 0,
@@ -432,14 +432,14 @@ ECOparam cWorkbookMethodsParamsTable[] =
 
 // Table of Methods available
 // Columns are:
-// 1) Unique ID 
+// 1) Unique ID
 // 2) Name of Method (Resource #)
-// 3) Return Type 
+// 3) Return Type
 // 4) # of Parameters
-// 5) Array of Parameter Names (Taken from MethodsParamsTable.  Increments # of parameters past this pointer) 
+// 5) Array of Parameter Names (Taken from MethodsParamsTable.  Increments # of parameters past this pointer)
 // 6) Enum Start (Not sure what this does, 0 = disabled)
 // 7) Enum Stop (Not sure what this does, 0 = disabled)
-ECOmethodEvent cWorkbookMethodsTable[] = 
+ECOmethodEvent cWorkbookMethodsTable[] =
 {
 	cWBMethodInitialize,         cWBMethodInitialize,         fftNone,      1, &cWorkbookMethodsParamsTable[0],  0, 0,
 	cWBMethodLoad,               cWBMethodLoad,               fftBoolean,   1, &cWorkbookMethodsParamsTable[1],  0, 0,
@@ -474,14 +474,14 @@ qlong NVObjWorkbook::returnMethods(tThreadData* pThreadData)
 
 // Table of properties available
 // Columns are:
-// 1) Unique ID 
+// 1) Unique ID
 // 2) Name of Property (Resource #)
-// 3) Return Type 
+// 3) Return Type
 // 4) Flags describing the property
 // 5) Additional Flags describing the property
 // 6) Enum Start (Not sure what this does, 0 = disabled)
 // 7) Enum Stop (Not sure what this does, 0 = disabled)
-ECOproperty cWorkbookPropertyTable[] = 
+ECOproperty cWorkbookPropertyTable[] =
 {
 	cWBPropertyErrorMessage,    cWBPropertyErrorMessage,    fftCharacter, EXTD_FLAG_PROPCUSTOM, 0, 0, 0,
 	cWBPropertySheetCount,      cWBPropertySheetCount,      fftInteger,   EXTD_FLAG_PROPCUSTOM, 0, 0, 0,
@@ -493,7 +493,7 @@ ECOproperty cWorkbookPropertyTable[] =
 	cWBPropertyRGBMode,         cWBPropertyRGBMode,         fftBoolean,   EXTD_FLAG_PROPCUSTOM, 0, 0, 0
 };
 
-// List of properties 
+// List of properties
 qlong NVObjWorkbook::returnProperties( tThreadData* pThreadData )
 {
 	const qshort propertyCount = sizeof(cWorkbookPropertyTable) / sizeof(ECOproperty);
@@ -532,7 +532,7 @@ OmnisTools::tResult NVObjWorkbook::methodLoad( OmnisTools::tThreadData* pThreadD
 	}
 	
     initialize(); // Get a new book object before any load so there are no hanging formats and fonts on the old book
-    
+
 	std::wstring path = getWStringFromEXTFldVal(pathVal);
 	bool success = book->load(path.c_str());
 	
@@ -582,7 +582,7 @@ OmnisTools::tResult NVObjWorkbook::methodLoadRaw( OmnisTools::tThreadData* pThre
 	}
 	
     initialize(); // Get a new book object before any load so there are no hanging formats and fonts on the old book
-    
+
 	const char* data;
 	qbyte* omData = static_cast<qbyte*>(MEMmalloc(omSize));
 	
@@ -642,12 +642,12 @@ OmnisTools::tResult NVObjWorkbook::methodSaveRaw( OmnisTools::tThreadData* pThre
 OmnisTools::tResult NVObjWorkbook::methodAddSheet( OmnisTools::tThreadData* pThreadData, qshort pParamCount ) {
 	EXTfldval nameVal, objVal;
 	
-	// Read parameters.  
+	// Read parameters.
 	// Param 1: Name of Sheet
 	if ( getParamVar(pThreadData, 1, nameVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "First parameter, sheetName, is required.";
 		return ERR_BAD_PARAMS;
-	} 
+	}
 	
 	// (Optional) Param 2: Sheet object to copy
 	Sheet *sheet = 0, *retSheet = 0;
@@ -684,13 +684,13 @@ OmnisTools::tResult NVObjWorkbook::methodAddSheet( OmnisTools::tThreadData* pThr
 // Retrieve a sheet object
 OmnisTools::tResult NVObjWorkbook::methodGetSheet( OmnisTools::tThreadData* pThreadData, qshort pParamCount ) {
 	
-	// Read parameters.  
+	// Read parameters.
 	// Param 1: Index of sheet
 	qlong sheetIndex;
 	if ( getParamLong(pThreadData, 1, sheetIndex) != qtrue ) {
 		pThreadData->mExtraErrorText = "First parameter, sheetIndex, is required.";
 		return ERR_BAD_PARAMS;
-	} 
+	}
 	if (sheetIndex < 1 || sheetIndex > (book->sheetCount()+1)) {
 		pThreadData->mExtraErrorText = str(format("First parameter, sheetIndex, is out of range.  Must be between 1 and the number of Worksheets(%d)") % book->sheetCount());
 		return ERR_BAD_PARAMS;
@@ -718,13 +718,13 @@ OmnisTools::tResult NVObjWorkbook::methodGetSheet( OmnisTools::tThreadData* pThr
 // Delete a sheet
 OmnisTools::tResult NVObjWorkbook::methodDelSheet( OmnisTools::tThreadData* pThreadData, qshort pParamCount ) {
 	
-	// Read parameters.  
+	// Read parameters.
 	// Param 1: Index of sheet
 	qlong sheetIndex;
 	if ( getParamLong(pThreadData, 1, sheetIndex) != qtrue ) {
 		pThreadData->mExtraErrorText = "First parameter, sheetIndex, is required.";
 		return ERR_BAD_PARAMS;
-	} 
+	}
 	if (sheetIndex < 1 || sheetIndex > (book->sheetCount()+1)) {
 		pThreadData->mExtraErrorText = str(format("First parameter, sheetIndex, is out of range.  Must be between 1 and the number of Worksheets(%d)") % book->sheetCount());
 		return ERR_BAD_PARAMS;
@@ -1030,7 +1030,7 @@ OmnisTools::tResult NVObjWorkbook::methodPopulateFromList( OmnisTools::tThreadDa
 			return ERR_BAD_PARAMS;
 		}
 	}
-    
+
     if (styleVal == POP_STYLE_CUSTOM_HEADER_FMT) {
 		if( getParamList(pThreadData, 4, formatVal, qtrue) != qtrue ) {
 			pThreadData->mExtraErrorText = "Missing format row in 4th parameter.";
@@ -1057,7 +1057,7 @@ OmnisTools::tResult NVObjWorkbook::methodPopulateFromList( OmnisTools::tThreadDa
 		// Remove all previous sheets
 		for(int x = 0; x < book->sheetCount(); ++x)
 			book->delSheet(x);
-	    
+	
 		Sheet* sheet = book->addSheet(L"Sheet1");
 	}
 	else if (sheetIndex == -1) {
@@ -1084,7 +1084,7 @@ OmnisTools::tResult NVObjWorkbook::methodPopulateFromList( OmnisTools::tThreadDa
 		pThreadData->mExtraErrorText = "Unable to get worksheet for workbook.";
 		return METHOD_FAILED;
 	}
-    
+
 	// Loop list and add all data
 	qlong rowCount = listVal.rowCnt();
 	qlong rowOffset = 0;
@@ -1124,13 +1124,13 @@ OmnisTools::tResult NVObjWorkbook::methodPopulateFromList( OmnisTools::tThreadDa
 			writeValueToSheet(sheet, headerRow, curCol, colVal, headerFmt);
 		}
 	}
-    
+
     // Setup the formats needed for each column
     Format* curFormat;
     NVObjFormat* omFormat;
     std::map<qlong, Format*> formatLookup;
     std::map<qlong, Format*>::iterator fmtIterator;
-    
+
     // For the format compatible style build the list of formats
     if (styleVal == POP_STYLE_CUSTOM_HEADER_FMT) {
         for ( qshort curCol = 1 ; curCol <= colCount ; curCol++ ) {
@@ -1153,7 +1153,7 @@ OmnisTools::tResult NVObjWorkbook::methodPopulateFromList( OmnisTools::tThreadDa
 			
 		}
     }
-    
+
 	// Write data
     for ( qshort curCol = 1 ; curCol <= colCount ; curCol++ ) {
         // Lookup format
@@ -1163,7 +1163,7 @@ OmnisTools::tResult NVObjWorkbook::methodPopulateFromList( OmnisTools::tThreadDa
         } else {
             curFormat = 0;
         }
-        
+
         // Write entire column
         for ( qlong curRow = 1; curRow <= rowCount; ++curRow ) {
 			listVal.getColVal( curRow, curCol, colVal );
@@ -1198,7 +1198,7 @@ OmnisTools::tResult NVObjWorkbook::methodExtractList( OmnisTools::tThreadData* p
 	// Optional: Read list to use for definition of new list
 	EXTqlist defineList;
 	if (styleVal == EXTRACT_STYLE_CUSTOM_DEFINE || styleVal == EXTRACT_STYLE_CUSTOM_DEFINE_IH || styleVal == EXTRACT_STYLE_MAP_FROM_HEADER) {
-		if( getParamList(pThreadData, 2, defineList, qfalse) != qtrue ) { 
+		if( getParamList(pThreadData, 2, defineList, qfalse) != qtrue ) {
 			pThreadData->mExtraErrorText = "List in 2nd parameter is not recognized.";
 			return ERR_BAD_PARAMS;
 		}
@@ -1212,11 +1212,11 @@ OmnisTools::tResult NVObjWorkbook::methodExtractList( OmnisTools::tThreadData* p
 	// Sheet layout
 	Sheet* sheet = book->getSheet(0);
 	
-	int rowStart = sheet->firstRow(); 
+	int rowStart = sheet->firstRow();
 	int rowCount = (sheet->lastRow()+1) - rowStart;
 	
 	const int MAX_COLS = 255;
-	int colStart = sheet->firstCol(); 
+	int colStart = sheet->firstCol();
 	int colCount = sheet->lastCol() - colStart;
 	colCount = colCount > MAX_COLS ? MAX_COLS : colCount;
 	
@@ -1250,7 +1250,7 @@ OmnisTools::tResult NVObjWorkbook::methodExtractList( OmnisTools::tThreadData* p
 		// When mapping the data to a specific definition the list must be copied
 		// and then the definition mapped in the loop below
 		
-		defCols = defineList.colCnt(); 
+		defCols = defineList.colCnt();
 		for (qshort mapCol = 1; mapCol <= defCols && mapCol <= MAX_COLS; ++mapCol) {
 			
 			defineList.getCol(mapCol, qfalse, colName);
@@ -1279,7 +1279,7 @@ OmnisTools::tResult NVObjWorkbook::methodExtractList( OmnisTools::tThreadData* p
 		} else if (styleVal == EXTRACT_STYLE_CUSTOM_DEFINE || styleVal == EXTRACT_STYLE_CUSTOM_DEFINE_IH) {
 			// Get column name from passed in list
 			defineList.getCol(curCol, qfalse, colName);
-		} 
+		}
 		
 		if (!colName) {
 			// If there is no value in the header or the default header option is selected then use Excel column name
@@ -1315,7 +1315,7 @@ OmnisTools::tResult NVObjWorkbook::methodExtractList( OmnisTools::tThreadData* p
 	}
 	
 	// Setup return value
-	retVal.setList(listVal, qtrue, qfalse); 
+	retVal.setList(listVal, qtrue, qfalse);
 	ECOaddParam(pThreadData->mEci, &retVal);
 	
 	return METHOD_DONE_RETURN;
@@ -1325,14 +1325,14 @@ OmnisTools::tResult NVObjWorkbook::methodExtractList( OmnisTools::tThreadData* p
  **                              INTERNAL      METHODS                                           **
  **************************************************************************************************/
 
-// Book requires that the release method be called before it's deleted.  
+// Book requires that the release method be called before it's deleted.
 void BookDeleter( Book* ptr) {
 	if (ptr) {
 		ptr->release();
 	}
 }
 
-// Internal initialize method that sets the proper book type 
+// Internal initialize method that sets the proper book type
 void NVObjWorkbook::initialize() {
 	
 	// Get appropriate Book class
@@ -1569,7 +1569,7 @@ int NVObjWorkbook::getColNumber(EXTfldval& colVal) {
 void NVObjWorkbook::getColNameForColNumber(EXTfldval& colName, int colNum) {	
 	std::wstring retString;
 	if (colNum > 26) {
-		// If the column number is greater then 26 then the first 
+		// If the column number is greater then 26 then the first
 		// letter is a multiple of 26.
 		int last = colNum % 26;
 		colNum = colNum/26;
