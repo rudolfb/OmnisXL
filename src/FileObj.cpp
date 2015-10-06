@@ -418,7 +418,8 @@ ECOparam cWorkbookMethodsParamsTable[] =
 	2920, fftList,      0, 0,
 	2921, fftInteger,   EXTD_FLAG_PARAMOPT, 0,
 	2922, fftRow,       EXTD_FLAG_PARAMOPT, 0,
-    2923, fftRow,       EXTD_FLAG_PARAMOPT, 0,
+  2923, fftRow,       EXTD_FLAG_PARAMOPT, 0,
+  2930, fftInteger,   EXTD_FLAG_PARAMOPT, 0,
 	//$extractList
 	2924, fftInteger,   EXTD_FLAG_PARAMOPT, 0,
 	2925, fftRow,       EXTD_FLAG_PARAMOPT, 0,
@@ -456,7 +457,7 @@ ECOmethodEvent cWorkbookMethodsTable[] =
 	cWBMethodFont,               cWBMethodFont,               fftObject,    1, &cWorkbookMethodsParamsTable[16], 0, 0,
 	cWBMethodAddPicture,         cWBMethodAddPicture,         fftInteger,   1, &cWorkbookMethodsParamsTable[17], 0, 0,
 	cWBMethodAddPictureRaw,      cWBMethodAddPictureRaw,      fftInteger,   2, &cWorkbookMethodsParamsTable[18], 0, 0,
-	cWBMethodPopulateFromList,   cWBMethodPopulateFromList,   fftBoolean,   4, &cWorkbookMethodsParamsTable[20], 0, 0,
+	cWBMethodPopulateFromList,   cWBMethodPopulateFromList,   fftBoolean,   5  &cWorkbookMethodsParamsTable[20], 0, 0,
 	cWBMethodExtractList,        cWBMethodExtractList,        fftList,      2, &cWorkbookMethodsParamsTable[24], 0, 0,
 	cWBMethodError,              cWBMethodError,              fftNone,      4, &cWorkbookMethodsParamsTable[26], 0, 0
 };
@@ -1015,8 +1016,9 @@ OmnisTools::tResult NVObjWorkbook::methodPopulateFromList( OmnisTools::tThreadDa
 	
 	EXTqlist listVal, headerVal, formatVal;
 	qshort styleVal = POP_STYLE_NO_HEADER;
+	int sheetIndex = -2, test = -2;
 	
-	if( getParamList(pThreadData, 1, listVal, qfalse) != qtrue ) { 
+	if( getParamList(pThreadData, 1, listVal, qfalse) != qtrue ) {
 		pThreadData->mExtraErrorText = "List in 1st parameter not recognized.";
 		return ERR_BAD_PARAMS;
 	}
@@ -1041,15 +1043,47 @@ OmnisTools::tResult NVObjWorkbook::methodPopulateFromList( OmnisTools::tThreadDa
 		return ERR_NOT_SUPPORTED;
 	}
 	
-    // Remove all previous sheets
-    for(int x = 0; x < book->sheetCount(); ++x)
-        book->delSheet(x);
-    
-	Sheet* sheet = book->addSheet(L"Sheet1");
-    if (!sheet) {
-        pThreadData->mExtraErrorText = "Unable to get worksheet for workbook.";
+	if ( getParamBool(pThreadData, 5, sheetIndex) == qtrue ) {
+		// In Omnis we will work with the index numbers 1 to sheetCount
+		// In libXL the sheetIndex starts at 0
+		if (sheetIndex < 1 || sheetIndex > (book->sheetCount())) {
+			pThreadData->mExtraErrorText = str(format("Fifth parameter, sheetIndex, is out of range. Must be between 0 and the number of Worksheets(%d)") % book->sheetCount());
+			return ERR_BAD_PARAMS;
+		}
+		sheetIndex = sheetIndex -1;
+	}
+	
+	if (sheetIndex == -2) {
+		// Remove all previous sheets
+		for(int x = 0; x < book->sheetCount(); ++x)
+			book->delSheet(x);
+	    
+		Sheet* sheet = book->addSheet(L"Sheet1");
+	}
+	else if (sheetIndex == -1) {
+		// In libXL the sheetIndex starts at 0. In Omnis we passed 0 as a parameter.
+		if (book->sheetCount() > 0) {
+			test = 	book->activeSheet();
+			Sheet* sheet = book->getSheet(test);
+		}
+		else {
+			Sheet* sheet = book->addSheet(L"Sheet1");
+		}
+	}
+	else if (sheetIndex > -1) {
+		/
+		// In libXL the sheetIndex starts at 0. In Omnis we passed 0 as a parameter.
+		// For this method the user passed an Omnis value of 1 or moretest = book->activeSheet();
+		if (test != sheetIndex) {
+				book->setActiveSheet(sheetIndex);
+		}
+		Sheet* sheet = book->getSheet(sheetIndex);
+	}
+	
+	if (!sheet) {
+		pThreadData->mExtraErrorText = "Unable to get worksheet for workbook.";
 		return METHOD_FAILED;
-    }
+	}
     
 	// Loop list and add all data
 	qlong rowCount = listVal.rowCnt();
@@ -1109,12 +1143,12 @@ OmnisTools::tResult NVObjWorkbook::methodPopulateFromList( OmnisTools::tThreadDa
                         formatLookup[curCol] = curFormat;
                     } else {
                         pThreadData->mExtraErrorText = str(format("Found object in 4th parameter, formatRow, but couldn't resolve object contents in column %d.") % curCol);
-                        return ERR_BAD_PARAMS; 
+                        return ERR_BAD_PARAMS;
                     }
                 }
             } else {
                 pThreadData->mExtraErrorText = "Invalid definition in contents of 4th parameter, formatRow.  Expected kObject.";
-                return ERR_BAD_PARAMS; 
+                return ERR_BAD_PARAMS;
             }
 			
 		}

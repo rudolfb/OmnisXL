@@ -42,7 +42,7 @@ BEGIN
 		 2013									"$font:$font(LongInt index) Returns a Font object with the defined index. Index must be less than return value of $fontSize property."
 		 2014									"$addPicture:$addPicture(Character filePath) Adds a picture to the workbook. Returns a picture identifier. Supports BMP, DIB, PNG, JPG and WMF picture formats. Use picture identifier with Worksheet.$setPicture(). Returns -1 if error occurs."
 		 2015									"$addPictureRaw:$addPictureRaw(Binary data, Number0dp size) Adds a picture to the workbook from memory buffer: data - pointer to buffer with picture data (BMP, DIB, PNG, JPG or WMF formats); size - size of data in buffer. Returns a picture identifier."
-		 2016									"$populateWithList:$populateWithList(List readFromList, Integer headerStyle = kXLPopulateNoHeader, Row header = <none>) (Max 65535 rows) Sets the data in the workbook to be the contents of the list. For style see kXLPopulate- constants. Returns bool."
+		 2016									"$populateWithList:$populateWithList(List readFromList, Integer headerStyle = kXLPopulateNoHeader, Row header = <none>, FormatRow  = <none>, LongInt index) (Max 65535 rows) Sets the data in the workbook to be the contents of the list. For style see kXLPopulate- constants. If an optional sheetIndex number (1...sheetcount) is passed as a parameter that sheet will be used for adding the data from the list If the sheetIndex of 0 is passed, the data will be added to the current active sheet. Returns bool."
 		 2017									"$extractList:$extractList(Integer readHeaderStyle = kXLExtractNoHeader, List/Row definition) (Max 65535 rows on first sheet) Reads the contents of the workbook into a list. For style see xXLExtract- constants. Returns List."
 		 2018									"$error:$error(LongInt errorCode, Character errorDesc, Character longErrorText, Character methodName) is called when an error has occurred. (Override to receive messages)"
 		 2019									"$addFormatRef:$addFormat(Format initFormat) Adds a new format to the workbook, initial parameters can be copied from other format. Returns empty object if error occurs."
@@ -89,6 +89,7 @@ BEGIN
 		 2927									"ErrorDesc"
 		 2928									"ErrorLongText"
 		 2929									"ErrorMethodName"
+		 2930									"index"
 		 
 		 // Worksheet object
 		 //   Methods
