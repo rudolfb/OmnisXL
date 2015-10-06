@@ -60,42 +60,42 @@ ECOmethodEvent cStaticMethodsTable[] =
 qlong returnStaticMethods(tThreadData* pThreadData)
 {
 	const qshort cStaticMethodCount = sizeof(cStaticMethodsTable) / sizeof(ECOmethodEvent);
-	
+
 	return ECOreturnMethods( gInstLib, pThreadData->mEci, &cStaticMethodsTable[0], cStaticMethodCount );
 }
 
 // Implementation of single static method
 void methodSetKey(tThreadData* pThreadData, qshort paramCount) {
-	
+
 	EXTfldval nameVal, keyVal;
-	
+
 	if ( getParamVar(pThreadData, 1, nameVal) != qtrue )
 		return;
-	
+
 	if ( getParamVar(pThreadData, 2, keyVal) != qtrue )
 		return;
-	
-	
+
+
 	NVObjWorkbook::licenseName = getWStringFromEXTFldVal(nameVal);
 	NVObjWorkbook::licenseKey = getWStringFromEXTFldVal(keyVal);
-	
+
 	return;
 }
 
 // Static method dispatch
 qlong staticMethodCall( OmnisTools::tThreadData* pThreadData ) {
-	
+
 	qshort funcId = (qshort)ECOgetId(pThreadData->mEci);
 	qshort paramCount = ECOgetParamCount(pThreadData->mEci);
-	
+
 	switch( funcId )
 	{
-		case cStaticMethodSetKey:
-			pThreadData->mCurMethodName = "$setKey";
-			methodSetKey(pThreadData, paramCount);
-			break;
+	case cStaticMethodSetKey:
+		pThreadData->mCurMethodName = "$setKey";
+		methodSetKey(pThreadData, paramCount);
+		break;
 	}
-	
+
 	return 0L;
 }
 

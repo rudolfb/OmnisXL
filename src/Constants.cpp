@@ -31,82 +31,82 @@ static map<Color, int> omnisColorLookup;
 void LibXLConstants::buildColorLookup() {
 	if (colorLookup.size() > 0) // Pseudo-singleton for color lookup static variables.
 		return;
-	
+
 	// Build main lookup (based on constant values defined in ExcelFormat.rc)
- 	colorLookup[1]  = COLOR_BLACK;	
- 	colorLookup[2]  = COLOR_WHITE;	
- 	colorLookup[3]  = COLOR_RED;	
- 	colorLookup[4]  = COLOR_BRIGHTGREEN;	
- 	colorLookup[5]  = COLOR_BLUE;	
- 	colorLookup[6]  = COLOR_YELLOW;	
- 	colorLookup[7]  = COLOR_PINK;	
- 	colorLookup[8]  = COLOR_TURQUOISE;	
- 	colorLookup[9]  = COLOR_DARKRED;	
- 	colorLookup[10] = COLOR_GREEN;	
- 	colorLookup[11] = COLOR_DARKBLUE;	
- 	colorLookup[12] = COLOR_DARKYELLOW;	
- 	colorLookup[13] = COLOR_VIOLET;	
- 	colorLookup[14] = COLOR_TEAL;	
- 	colorLookup[15] = COLOR_GRAY25;	
- 	colorLookup[16] = COLOR_GRAY50;	
- 	colorLookup[17] = COLOR_PERIWINKLE_CF;	
- 	colorLookup[18] = COLOR_PLUM_CF;	
- 	colorLookup[19] = COLOR_IVORY_CF;	
- 	colorLookup[20] = COLOR_LIGHTTURQUOISE_CF;	
- 	colorLookup[21] = COLOR_DARKPURPLE_CF;	
- 	colorLookup[22] = COLOR_CORAL_CF;	
- 	colorLookup[23] = COLOR_OCEANBLUE_CF;	
- 	colorLookup[24] = COLOR_ICEBLUE_CF;	
- 	colorLookup[25] = COLOR_DARKBLUE_CL;	
- 	colorLookup[26] = COLOR_PINK_CL;	
- 	colorLookup[27] = COLOR_YELLOW_CL;	
- 	colorLookup[28] = COLOR_TURQUOISE_CL;	
- 	colorLookup[29] = COLOR_VIOLET_CL;	
- 	colorLookup[30] = COLOR_DARKRED_CL;	
- 	colorLookup[31] = COLOR_TEAL_CL;	
- 	colorLookup[32] = COLOR_BLUE_CL;	
- 	colorLookup[33] = COLOR_SKYBLUE;	
- 	colorLookup[34] = COLOR_LIGHTTURQUOISE;	
- 	colorLookup[35] = COLOR_LIGHTGREEN;	
- 	colorLookup[36] = COLOR_LIGHTYELLOW;	
- 	colorLookup[37] = COLOR_PALEBLUE;	
- 	colorLookup[38] = COLOR_ROSE;	
- 	colorLookup[39] = COLOR_LAVENDER;	
- 	colorLookup[40] = COLOR_TAN;	
- 	colorLookup[41] = COLOR_LIGHTBLUE;	
- 	colorLookup[42] = COLOR_AQUA;	
- 	colorLookup[43] = COLOR_LIME;	
- 	colorLookup[44] = COLOR_GOLD;	
- 	colorLookup[45] = COLOR_LIGHTORANGE;	
- 	colorLookup[46] = COLOR_ORANGE;	
- 	colorLookup[47] = COLOR_BLUEGRAY;	
- 	colorLookup[48] = COLOR_GRAY40;	
- 	colorLookup[49] = COLOR_DARKTEAL;	
- 	colorLookup[50] = COLOR_SEAGREEN;	
- 	colorLookup[51] = COLOR_DARKGREEN;	
- 	colorLookup[52] = COLOR_OLIVEGREEN;	
- 	colorLookup[53] = COLOR_BROWN;	
- 	colorLookup[54] = COLOR_PLUM;	
- 	colorLookup[55] = COLOR_INDIGO;	
- 	colorLookup[56] = COLOR_GRAY80;	
- 	colorLookup[57] = COLOR_DEFAULT_FOREGROUND;	
- 	colorLookup[58] = COLOR_DEFAULT_BACKGROUND;
+	colorLookup[1]  = COLOR_BLACK;	
+	colorLookup[2]  = COLOR_WHITE;	
+	colorLookup[3]  = COLOR_RED;	
+	colorLookup[4]  = COLOR_BRIGHTGREEN;	
+	colorLookup[5]  = COLOR_BLUE;	
+	colorLookup[6]  = COLOR_YELLOW;	
+	colorLookup[7]  = COLOR_PINK;	
+	colorLookup[8]  = COLOR_TURQUOISE;	
+	colorLookup[9]  = COLOR_DARKRED;	
+	colorLookup[10] = COLOR_GREEN;	
+	colorLookup[11] = COLOR_DARKBLUE;	
+	colorLookup[12] = COLOR_DARKYELLOW;	
+	colorLookup[13] = COLOR_VIOLET;	
+	colorLookup[14] = COLOR_TEAL;	
+	colorLookup[15] = COLOR_GRAY25;	
+	colorLookup[16] = COLOR_GRAY50;	
+	colorLookup[17] = COLOR_PERIWINKLE_CF;	
+	colorLookup[18] = COLOR_PLUM_CF;	
+	colorLookup[19] = COLOR_IVORY_CF;	
+	colorLookup[20] = COLOR_LIGHTTURQUOISE_CF;	
+	colorLookup[21] = COLOR_DARKPURPLE_CF;	
+	colorLookup[22] = COLOR_CORAL_CF;	
+	colorLookup[23] = COLOR_OCEANBLUE_CF;	
+	colorLookup[24] = COLOR_ICEBLUE_CF;	
+	colorLookup[25] = COLOR_DARKBLUE_CL;	
+	colorLookup[26] = COLOR_PINK_CL;	
+	colorLookup[27] = COLOR_YELLOW_CL;	
+	colorLookup[28] = COLOR_TURQUOISE_CL;	
+	colorLookup[29] = COLOR_VIOLET_CL;	
+	colorLookup[30] = COLOR_DARKRED_CL;	
+	colorLookup[31] = COLOR_TEAL_CL;	
+	colorLookup[32] = COLOR_BLUE_CL;	
+	colorLookup[33] = COLOR_SKYBLUE;	
+	colorLookup[34] = COLOR_LIGHTTURQUOISE;	
+	colorLookup[35] = COLOR_LIGHTGREEN;	
+	colorLookup[36] = COLOR_LIGHTYELLOW;	
+	colorLookup[37] = COLOR_PALEBLUE;	
+	colorLookup[38] = COLOR_ROSE;	
+	colorLookup[39] = COLOR_LAVENDER;	
+	colorLookup[40] = COLOR_TAN;	
+	colorLookup[41] = COLOR_LIGHTBLUE;	
+	colorLookup[42] = COLOR_AQUA;	
+	colorLookup[43] = COLOR_LIME;	
+	colorLookup[44] = COLOR_GOLD;	
+	colorLookup[45] = COLOR_LIGHTORANGE;	
+	colorLookup[46] = COLOR_ORANGE;	
+	colorLookup[47] = COLOR_BLUEGRAY;	
+	colorLookup[48] = COLOR_GRAY40;	
+	colorLookup[49] = COLOR_DARKTEAL;	
+	colorLookup[50] = COLOR_SEAGREEN;	
+	colorLookup[51] = COLOR_DARKGREEN;	
+	colorLookup[52] = COLOR_OLIVEGREEN;	
+	colorLookup[53] = COLOR_BROWN;	
+	colorLookup[54] = COLOR_PLUM;	
+	colorLookup[55] = COLOR_INDIGO;	
+	colorLookup[56] = COLOR_GRAY80;	
+	colorLookup[57] = COLOR_DEFAULT_FOREGROUND;	
+	colorLookup[58] = COLOR_DEFAULT_BACKGROUND;
 	colorLookup[59] = COLOR_TOOLTIP;
 	colorLookup[60] = COLOR_AUTO;
-	
+
 	// Build reverse lookup
 	map<int, Color>::iterator it;
 	for ( it=colorLookup.begin() ; it != colorLookup.end(); it++ ) {
 		omnisColorLookup[(*it).second] = (*it).first;
 	}
-	
+
 	return;
 }
 
 // Check if the constant is valid
 bool LibXLConstants::isValidColor(int omnisColorConstant) {
 	buildColorLookup();
-	
+
 	map<int,Color>::iterator it;
 	it = colorLookup.find(omnisColorConstant);
 	if (it != colorLookup.end())
@@ -118,7 +118,7 @@ bool LibXLConstants::isValidColor(int omnisColorConstant) {
 // Get the LibXL color constant for the Omnis color constant
 Color LibXLConstants::getColorConstant(int omnisColorConstant) {
 	buildColorLookup();
-	
+
 	map<int,Color>::iterator it;
 	it = colorLookup.find(omnisColorConstant);
 	if (it == colorLookup.end())
@@ -130,7 +130,7 @@ Color LibXLConstants::getColorConstant(int omnisColorConstant) {
 // Get the Omnis color constant for the LibXL color constant
 int LibXLConstants::getOmnisColorConstant(Color colorConstant) {
 	buildColorLookup();
-	
+
 	map<Color,int>::iterator it;
 	it = omnisColorLookup.find(colorConstant);
 	if (it == omnisColorLookup.end())
@@ -145,7 +145,7 @@ static map<int, int> omnisNumFormatLookup;
 void LibXLConstants::buildNumFormatLookup() {
 	if (numFormatLookup.size() > 0) // Pseudo-singleton for number format lookup static variables.
 		return;
-	
+
 	numFormatLookup[1]  = NUMFORMAT_GENERAL;
 	numFormatLookup[2]  = NUMFORMAT_NUMBER;
 	numFormatLookup[3]  = NUMFORMAT_NUMBER_D2;
@@ -182,20 +182,20 @@ void LibXLConstants::buildNumFormatLookup() {
 	numFormatLookup[34] = NUMFORMAT_CUSTOM_MMSS0;
 	numFormatLookup[35] = NUMFORMAT_CUSTOM_000P0E_PLUS0;
 	numFormatLookup[36] = NUMFORMAT_TEXT;
-	
+
 	// Build reverse lookup
 	map<int,int>::iterator it;
 	for ( it=numFormatLookup.begin() ; it != numFormatLookup.end(); it++ ) {
 		omnisNumFormatLookup[(*it).second] = (*it).first;
 	}
-	
+
 	return;
 }
 
 // Check if the constant is valid
 bool LibXLConstants::isValidNumFormat(int omnisNumFormatConstant) {
 	buildNumFormatLookup();
-	
+
 	map<int,int>::iterator it;
 	it = numFormatLookup.find(omnisNumFormatConstant);
 	if (it != numFormatLookup.end())
@@ -206,7 +206,7 @@ bool LibXLConstants::isValidNumFormat(int omnisNumFormatConstant) {
 
 int LibXLConstants::getNumFormatConstant(int omnisNumFormatConstant) {
 	buildNumFormatLookup();
-	
+
 	map<int,int>::iterator it;
 	it = numFormatLookup.find(omnisNumFormatConstant);
 	if (it == numFormatLookup.end())
@@ -217,7 +217,7 @@ int LibXLConstants::getNumFormatConstant(int omnisNumFormatConstant) {
 
 int LibXLConstants::getOmnisNumFormatConstant(int numFormatConstant) {
 	buildNumFormatLookup();
-	
+
 	map<int,int>::iterator it;
 	it = omnisNumFormatLookup.find(numFormatConstant);
 	if (it == omnisNumFormatLookup.end())
@@ -232,7 +232,7 @@ static map<AlignH, int> omnisAlignHLookup;
 void LibXLConstants::buildAlignHLookup() {
 	if (alignHLookup.size() > 0) // Pseudo-singleton for horizontal alignment lookup static variables.
 		return;
-	
+
 	alignHLookup[1] = ALIGNH_GENERAL;
 	alignHLookup[2] = ALIGNH_LEFT;
 	alignHLookup[3] = ALIGNH_CENTER;
@@ -241,20 +241,20 @@ void LibXLConstants::buildAlignHLookup() {
 	alignHLookup[6] = ALIGNH_JUSTIFY;
 	alignHLookup[7] = ALIGNH_MERGE;
 	alignHLookup[8] = ALIGNH_DISTRIBUTED;
-	
+
 	// Build reverse lookup
 	map<int,AlignH>::iterator it;
 	for ( it=alignHLookup.begin() ; it != alignHLookup.end(); it++ ) {
 		omnisAlignHLookup[(*it).second] = (*it).first;
 	}
-	
+
 	return;
 }
 
 // Check if the constant is valid
 bool LibXLConstants::isValidAlignH(int omnisAlignHConstant) {
 	buildAlignHLookup();
-	
+
 	map<int,AlignH>::iterator it;
 	it = alignHLookup.find(omnisAlignHConstant);
 	if (it != alignHLookup.end())
@@ -265,7 +265,7 @@ bool LibXLConstants::isValidAlignH(int omnisAlignHConstant) {
 
 AlignH LibXLConstants::getAlignHConstant(int omnisAlignHConstant) {
 	buildAlignHLookup();
-	
+
 	map<int,AlignH>::iterator it;
 	it = alignHLookup.find(omnisAlignHConstant);
 	if (it == alignHLookup.end())
@@ -276,7 +276,7 @@ AlignH LibXLConstants::getAlignHConstant(int omnisAlignHConstant) {
 
 int LibXLConstants::getOmnisAlignHConstant(AlignH alignHConstant) {
 	buildAlignHLookup();
-	
+
 	map<AlignH, int>::iterator it;
 	it = omnisAlignHLookup.find(alignHConstant);
 	if (it == omnisAlignHLookup.end())
@@ -292,26 +292,26 @@ static map<AlignV, int> omnisAlignVLookup;
 void LibXLConstants::buildAlignVLookup() {
 	if (alignVLookup.size() > 0) // Pseudo-singleton for vertical alignment lookup static variables.
 		return;
-	
+
 	alignVLookup[1] = ALIGNV_TOP;
 	alignVLookup[2] = ALIGNV_CENTER;
 	alignVLookup[3] = ALIGNV_BOTTOM;
 	alignVLookup[4] = ALIGNV_JUSTIFY;
 	alignVLookup[5] = ALIGNV_DISTRIBUTED;
-	
+
 	// Build reverse lookup
 	map<int,AlignV>::iterator it;
 	for ( it=alignVLookup.begin() ; it != alignVLookup.end(); it++ ) {
 		omnisAlignVLookup[(*it).second] = (*it).first;
 	}
-	
+
 	return;
 }
 
 // Check if the constant is valid
 bool LibXLConstants::isValidAlignV(int omnisAlignVConstant) {
 	buildAlignVLookup();
-	
+
 	map<int,AlignV>::iterator it;
 	it = alignVLookup.find(omnisAlignVConstant);
 	if (it != alignVLookup.end())
@@ -322,7 +322,7 @@ bool LibXLConstants::isValidAlignV(int omnisAlignVConstant) {
 
 AlignV LibXLConstants::getAlignVConstant(int omnisAlignVConstant) {
 	buildAlignVLookup();
-	
+
 	map<int,AlignV>::iterator it;
 	it = alignVLookup.find(omnisAlignVConstant);
 	if (it == alignVLookup.end())
@@ -333,7 +333,7 @@ AlignV LibXLConstants::getAlignVConstant(int omnisAlignVConstant) {
 
 int LibXLConstants::getOmnisAlignVConstant(AlignV alignVConstant) {
 	buildAlignVLookup();
-	
+
 	map<AlignV, int>::iterator it;
 	it = omnisAlignVLookup.find(alignVConstant);
 	if (it == omnisAlignVLookup.end())
@@ -349,7 +349,7 @@ static map<BorderStyle, int> omnisBorderStyleLookup;
 void LibXLConstants::buildBorderStyleLookup() {
 	if (borderStyleLookup.size() > 0) // Pseudo-singleton for border style lookup static variables.
 		return;
-	
+
 	borderStyleLookup[1]  = BORDERSTYLE_NONE;
 	borderStyleLookup[2]  = BORDERSTYLE_THIN;
 	borderStyleLookup[3]  = BORDERSTYLE_MEDIUM;
@@ -364,20 +364,20 @@ void LibXLConstants::buildBorderStyleLookup() {
 	borderStyleLookup[12] = BORDERSTYLE_DASHDOTDOT;
 	borderStyleLookup[13] = BORDERSTYLE_MEDIUMDASHDOTDOT;
 	borderStyleLookup[14] = BORDERSTYLE_SLANTDASHDOT;
-	
+
 	// Build reverse lookup
 	map<int,BorderStyle>::iterator it;
 	for ( it=borderStyleLookup.begin() ; it != borderStyleLookup.end(); it++ ) {
 		omnisBorderStyleLookup[(*it).second] = (*it).first;
 	}
-	
+
 	return;
 }
 
 // Check if the constant is valid
 bool LibXLConstants::isValidBorder(int omnisBorderStyleConstant) {
 	buildBorderStyleLookup();
-	
+
 	map<int,BorderStyle>::iterator it;
 	it = borderStyleLookup.find(omnisBorderStyleConstant);
 	if (it != borderStyleLookup.end())
@@ -388,7 +388,7 @@ bool LibXLConstants::isValidBorder(int omnisBorderStyleConstant) {
 
 BorderStyle LibXLConstants::getBorderStyleConstant(int omnisBorderStyleConstant) {
 	buildBorderStyleLookup();
-	
+
 	map<int, BorderStyle>::iterator it;
 	it = borderStyleLookup.find(omnisBorderStyleConstant);
 	if (it == borderStyleLookup.end())
@@ -399,7 +399,7 @@ BorderStyle LibXLConstants::getBorderStyleConstant(int omnisBorderStyleConstant)
 
 int LibXLConstants::getOmnisBorderStyleConstant(BorderStyle borderStyleConstant) {
 	buildBorderStyleLookup();
-	
+
 	map<BorderStyle, int>::iterator it;
 	it = omnisBorderStyleLookup.find(borderStyleConstant);
 	if (it == omnisBorderStyleLookup.end())
@@ -415,25 +415,25 @@ static map<BorderDiagonal, int> omnisBorderDiagonalLookup;
 void LibXLConstants::buildBorderDiagonalLookup() {
 	if (borderDiagonalLookup.size() > 0) // Pseudo-singleton for border style lookup static variables.
 		return;
-	
+
 	borderDiagonalLookup[1] = BORDERDIAGONAL_NONE;
 	borderDiagonalLookup[2] = BORDERDIAGONAL_DOWN;
 	borderDiagonalLookup[3] = BORDERDIAGONAL_UP;
 	borderDiagonalLookup[4] = BORDERDIAGONAL_BOTH;
-	
+
 	// Build reverse lookup
 	map<int,BorderDiagonal>::iterator it;
 	for ( it=borderDiagonalLookup.begin() ; it != borderDiagonalLookup.end(); it++ ) {
 		omnisBorderDiagonalLookup[(*it).second] = (*it).first;
 	}
-	
+
 	return;
 }
 
 // Check if the constant is valid
 bool LibXLConstants::isValidBorderDiagonal(int omnisBorderDiagonalConstant) {
 	buildBorderDiagonalLookup();
-	
+
 	map<int,BorderDiagonal>::iterator it;
 	it = borderDiagonalLookup.find(omnisBorderDiagonalConstant);
 	if (it != borderDiagonalLookup.end())
@@ -444,7 +444,7 @@ bool LibXLConstants::isValidBorderDiagonal(int omnisBorderDiagonalConstant) {
 
 BorderDiagonal LibXLConstants::getBorderDiagonalConstant(int omnisBorderDiagonalConstant) {
 	buildBorderDiagonalLookup();
-	
+
 	map<int, BorderDiagonal>::iterator it;
 	it = borderDiagonalLookup.find(omnisBorderDiagonalConstant);
 	if (it == borderDiagonalLookup.end())
@@ -455,7 +455,7 @@ BorderDiagonal LibXLConstants::getBorderDiagonalConstant(int omnisBorderDiagonal
 
 int LibXLConstants::getOmnisBorderDiagonalConstant(BorderDiagonal borderDiagonalConstant) {
 	buildBorderDiagonalLookup();
-	
+
 	map<BorderDiagonal, int>::iterator it;
 	it = omnisBorderDiagonalLookup.find(borderDiagonalConstant);
 	if (it == omnisBorderDiagonalLookup.end())
@@ -471,7 +471,7 @@ static map<FillPattern, int> omnisFillPatternLookup;
 void LibXLConstants::buildFillPatternLookup() {
 	if (fillPatternLookup.size() > 0) // Pseudo-singleton for border style lookup static variables.
 		return;
-	
+
 	fillPatternLookup[1]  = FILLPATTERN_NONE;
 	fillPatternLookup[2]  = FILLPATTERN_SOLID;
 	fillPatternLookup[3]  = FILLPATTERN_GRAY50;
@@ -491,20 +491,20 @@ void LibXLConstants::buildFillPatternLookup() {
 	fillPatternLookup[17] = FILLPATTERN_THINDIAGCROSSHATCH;
 	fillPatternLookup[18] = FILLPATTERN_GRAY12P5;
 	fillPatternLookup[19] = FILLPATTERN_GRAY6P25;
-	
+
 	// Build reverse lookup
 	map<int,FillPattern>::iterator it;
 	for ( it=fillPatternLookup.begin() ; it != fillPatternLookup.end(); it++ ) {
 		omnisFillPatternLookup[(*it).second] = (*it).first;
 	}
-	
+
 	return;
 }
 
 // Check if the constant is valid
 bool LibXLConstants::isValidFillPattern(int omnisFillPatternConstant) {
 	buildFillPatternLookup();
-	
+
 	map<int,FillPattern>::iterator it;
 	it = fillPatternLookup.find(omnisFillPatternConstant);
 	if (it != fillPatternLookup.end())
@@ -515,7 +515,7 @@ bool LibXLConstants::isValidFillPattern(int omnisFillPatternConstant) {
 
 FillPattern LibXLConstants::getFillPatternConstant(int omnisFillPatternConstant) {
 	buildFillPatternLookup();
-	
+
 	map<int, FillPattern>::iterator it;
 	it = fillPatternLookup.find(omnisFillPatternConstant);
 	if (it == fillPatternLookup.end())
@@ -526,7 +526,7 @@ FillPattern LibXLConstants::getFillPatternConstant(int omnisFillPatternConstant)
 
 int LibXLConstants::getOmnisFillPatternConstant(FillPattern fillPatternConstant) {
 	buildFillPatternLookup();
-	
+
 	map<FillPattern, int>::iterator it;
 	it = omnisFillPatternLookup.find(fillPatternConstant);
 	if (it == omnisFillPatternLookup.end())
@@ -542,24 +542,24 @@ static map<Script, int> omnisScriptLookup;
 void LibXLConstants::buildScriptLookup() {
 	if (scriptLookup.size() > 0) // Pseudo-singleton for border style lookup static variables.
 		return;
-	
+
 	scriptLookup[1] = SCRIPT_NORMAL;
 	scriptLookup[2] = SCRIPT_SUPER;
 	scriptLookup[3] = SCRIPT_SUB;
-	
+
 	// Build reverse lookup
 	map<int,Script>::iterator it;
 	for ( it=scriptLookup.begin() ; it != scriptLookup.end(); it++ ) {
 		omnisScriptLookup[(*it).second] = (*it).first;
 	}
-	
+
 	return;
 }
 
 // Check if the constant is valid
 bool LibXLConstants::isValidScript(int omnisScriptConstant) {
 	buildScriptLookup();
-	
+
 	map<int,Script>::iterator it;
 	it = scriptLookup.find(omnisScriptConstant);
 	if (it != scriptLookup.end())
@@ -570,7 +570,7 @@ bool LibXLConstants::isValidScript(int omnisScriptConstant) {
 
 Script LibXLConstants::getScriptConstant(int omnisScriptConstant) {
 	buildScriptLookup();
-	
+
 	map<int, Script>::iterator it;
 	it = scriptLookup.find(omnisScriptConstant);
 	if (it == scriptLookup.end())
@@ -581,7 +581,7 @@ Script LibXLConstants::getScriptConstant(int omnisScriptConstant) {
 
 int LibXLConstants::getOmnisScriptConstant(Script scriptConstant) {
 	buildScriptLookup();
-	
+
 	map<Script, int>::iterator it;
 	it = omnisScriptLookup.find(scriptConstant);
 	if (it == omnisScriptLookup.end())
@@ -596,26 +596,26 @@ static map<Underline, int> omnisUnderlineLookup;
 void LibXLConstants::buildUnderlineLookup() {
 	if (underlineLookup.size() > 0) // Pseudo-singleton for border style lookup static variables.
 		return;
-	
+
 	underlineLookup[1] = UNDERLINE_NONE;	
 	underlineLookup[2] = UNDERLINE_SINGLE;	
 	underlineLookup[3] = UNDERLINE_DOUBLE;	
 	underlineLookup[4] = UNDERLINE_SINGLEACC;	
 	underlineLookup[5] = UNDERLINE_DOUBLEACC;	
-	
+
 	// Build reverse lookup
 	map<int,Underline>::iterator it;
 	for ( it=underlineLookup.begin() ; it != underlineLookup.end(); it++ ) {
 		omnisUnderlineLookup[(*it).second] = (*it).first;
 	}
-	
+
 	return;
 }
 
 // Check if the constant is valid
 bool LibXLConstants::isValidUnderline(int omnisUnderlineConstant) {
 	buildUnderlineLookup();
-	
+
 	map<int,Underline>::iterator it;
 	it = underlineLookup.find(omnisUnderlineConstant);
 	if (it != underlineLookup.end())
@@ -626,7 +626,7 @@ bool LibXLConstants::isValidUnderline(int omnisUnderlineConstant) {
 
 Underline LibXLConstants::getUnderlineConstant(int omnisUnderlineConstant) {
 	buildUnderlineLookup();
-	
+
 	map<int, Underline>::iterator it;
 	it = underlineLookup.find(omnisUnderlineConstant);
 	if (it == underlineLookup.end())
@@ -637,7 +637,7 @@ Underline LibXLConstants::getUnderlineConstant(int omnisUnderlineConstant) {
 
 int LibXLConstants::getOmnisUnderlineConstant(Underline underlineConstant) {
 	buildUnderlineLookup();
-	
+
 	map<Underline, int>::iterator it;
 	it = omnisUnderlineLookup.find(underlineConstant);
 	if (it == omnisUnderlineLookup.end())
@@ -654,7 +654,7 @@ static map<Paper, int> omnisPaperLookup;
 void LibXLConstants::buildPaperLookup() {
 	if (paperLookup.size() > 0) // Pseudo-singleton for paper lookup static variables.
 		return;
-	
+
 	// Build main lookup (based on constant values defined in ExcelFormat.rc)
 	paperLookup[1]  = PAPER_DEFAULT;
 	paperLookup[2]  = PAPER_LETTER;
@@ -698,20 +698,20 @@ void LibXLConstants::buildPaperLookup() {
 	paperLookup[40] = PAPER_FANFOLD;
 	paperLookup[41] = PAPER_GERMAN_STD_FANFOLD;
 	paperLookup[42] = PAPER_GERMAN_LEGAL_FANFOLD;
-	
+
 	// Build reverse lookup
 	map<int,Paper>::iterator it;
 	for ( it=paperLookup.begin() ; it != paperLookup.end(); it++ ) {
 		omnisPaperLookup[(*it).second] = (*it).first;
 	}
-	
+
 	return;
 }
 
 // Check if the constant is valid
 bool LibXLConstants::isValidPaper(int omnisPaperConstant) {
 	buildPaperLookup();
-	
+
 	map<int,Paper>::iterator it;
 	it = paperLookup.find(omnisPaperConstant);
 	if (it != paperLookup.end())
@@ -723,7 +723,7 @@ bool LibXLConstants::isValidPaper(int omnisPaperConstant) {
 // Get the LibXL paper constant for the Omnis paper constant
 Paper LibXLConstants::getPaperConstant(int omnisPaperConstant) {
 	buildPaperLookup();
-	
+
 	map<int, Paper>::iterator it;
 	it = paperLookup.find(omnisPaperConstant);
 	if (it == paperLookup.end())
@@ -735,7 +735,7 @@ Paper LibXLConstants::getPaperConstant(int omnisPaperConstant) {
 // Get the Omnis paper constant for the LibXL paper constant
 int LibXLConstants::getOmnisPaperConstant(Paper paperConstant) {
 	buildPaperLookup();
-	
+
 	map<Paper, int>::iterator it;
 	it = omnisPaperLookup.find(paperConstant);
 	if (it == omnisPaperLookup.end())

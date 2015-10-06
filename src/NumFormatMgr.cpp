@@ -38,16 +38,16 @@ Format* NumFormatMgr::getFormat(int fmtConst) {
 		// Format doesn't exist.  Create a new one
 		retFormat = book->addFormat();
 		if (retFormat)
-            retFormat->setNumFormat(fmtConst);
+			retFormat->setNumFormat(fmtConst);
 		formatLookup[fmtConst] = retFormat;
 	}
-	
+
 	return retFormat;
 }
 
 // Build lookup and set all Format pointers to 0;
 void NumFormatMgr::buildFormatLookup() {
-	
+
 	formatLookup[NUMFORMAT_GENERAL] = 0;
 	formatLookup[NUMFORMAT_NUMBER] = 0;
 	formatLookup[NUMFORMAT_NUMBER_D2] = 0;
@@ -84,6 +84,6 @@ void NumFormatMgr::buildFormatLookup() {
 	formatLookup[NUMFORMAT_CUSTOM_MMSS0] = 0;
 	formatLookup[NUMFORMAT_CUSTOM_000P0E_PLUS0] = 0;
 	formatLookup[NUMFORMAT_TEXT] = 0;
-	
+
 	return;
 }

@@ -35,8 +35,8 @@ using boost::shared_ptr;
 static const int MAX_ROWS = 65535, MAX_COLS = 255;
 
 /**************************************************************************************************
- **                       CONSTRUCTORS / DESTRUCTORS                                             **
- **************************************************************************************************/
+**                       CONSTRUCTORS / DESTRUCTORS                                             **
+**************************************************************************************************/
 
 NVObjWorksheet::NVObjWorksheet(qobjinst qo, tThreadData *pThreadData) : NVObjBase(qo)
 { }
@@ -47,77 +47,77 @@ NVObjWorksheet::~NVObjWorksheet()
 void NVObjWorksheet::copy( NVObjWorksheet* pObj ) {
 	// Copy in super class (This does *this = *pObj)
 	NVObjBase::copy(pObj);
-	
+
 	// Copy the contents of the object into the new object
 	book = pObj->book;
 	sheet = pObj->sheet;
-    numFormats = pObj->numFormats;
+	numFormats = pObj->numFormats;
 }
 
 /**************************************************************************************************
- **                              PROPERTY DECLERATION                                            **
- **************************************************************************************************/
+**                              PROPERTY DECLERATION                                            **
+**************************************************************************************************/
 
 // This is where the resource # of the methods is defined.  In this project it is also used as the Unique ID.
 const static qshort cWSPropertyFirstRow          = 3500,
-                    cWSPropertyLastRow           = 3501,
-                    cWSPropertyFirstCol          = 3502,
-                    cWSPropertyLastCol           = 3503,
-                    cWSPropertyGroupSummaryBelow = 3504,
-                    cWSPropertyGroupSummaryRight = 3505,
-                    cWSPropertyPaper             = 3506,
-                    cWSPropertyDisplayGridlines  = 3507,
-                    cWSPropertyPrintGridlines    = 3508,
-                    cWSPropertyZoom              = 3509,
-                    cWSPropertyPrintZoom         = 3510,
-                    cWSPropertyLandscape         = 3511,
-                    cWSPropertyHeader            = 3512,
-                    cWSPropertyHeaderMargin      = 3513,
-                    cWSPropertyFooter            = 3514,
-                    cWSPropertyFooterMargin      = 3515,
-                    cWSPropertyHCenter           = 3516,
-                    cWSPropertyVCenter           = 3517,
-                    cWSPropertyMarginLeft        = 3518,
-                    cWSPropertyMarginRight       = 3519,
-                    cWSPropertyMarginTop         = 3520,
-                    cWSPropertyMarginBottom      = 3521,
-                    cWSPropertyPrintRowCol       = 3522,
-                    cWSPropertyProtected         = 3523;
+	cWSPropertyLastRow           = 3501,
+	cWSPropertyFirstCol          = 3502,
+	cWSPropertyLastCol           = 3503,
+	cWSPropertyGroupSummaryBelow = 3504,
+	cWSPropertyGroupSummaryRight = 3505,
+	cWSPropertyPaper             = 3506,
+	cWSPropertyDisplayGridlines  = 3507,
+	cWSPropertyPrintGridlines    = 3508,
+	cWSPropertyZoom              = 3509,
+	cWSPropertyPrintZoom         = 3510,
+	cWSPropertyLandscape         = 3511,
+	cWSPropertyHeader            = 3512,
+	cWSPropertyHeaderMargin      = 3513,
+	cWSPropertyFooter            = 3514,
+	cWSPropertyFooterMargin      = 3515,
+	cWSPropertyHCenter           = 3516,
+	cWSPropertyVCenter           = 3517,
+	cWSPropertyMarginLeft        = 3518,
+	cWSPropertyMarginRight       = 3519,
+	cWSPropertyMarginTop         = 3520,
+	cWSPropertyMarginBottom      = 3521,
+	cWSPropertyPrintRowCol       = 3522,
+	cWSPropertyProtected         = 3523;
 
 /**************************************************************************************************
- **                               METHOD DECLERATION                                             **
- **************************************************************************************************/
+**                               METHOD DECLERATION                                             **
+**************************************************************************************************/
 
 // This is where the resource # of the methods is defined.  In this project is also used as the Unique ID.
 const static qshort cWSMethodCell               = 3000,
-                    cWSMethodColWidth           = 3001,
-                    cWSMethodRowHeight          = 3002,
-                    cWSMethodSetCol             = 3003,
-                    cWSMethodSetRow             = 3004,
-                    cWSMethodGetMerge           = 3005,
-                    cWSMethodSetMerge           = 3006,
-                    cWSMethodDelMerge           = 3007,
-                    cWSMethodSetHorzPageBreak   = 3008,
-                    cWSMethodSetVertPageBreak   = 3009,
-                    cWSMethodSplit              = 3010,
-                    cWSMethodGroupRows          = 3011,
-                    cWSMethodGroupCols          = 3012,
-                    cWSMethodClear              = 3013,
-                    cWSMethodInsertRow          = 3014,
-                    cWSMethodInsertCol          = 3015,
-                    cWSMethodRemoveRow          = 3016,
-                    cWSMethodRemoveCol          = 3017,
-                    cWSMethodSetPrintRepeatRows = 3018,
-                    cWSMethodSetPrintRepeatCols = 3019,
-                    cWSMethodSetPrintArea       = 3020,
-                    cWSMethodClearPrintRepeats  = 3021,
-                    cWSMethodClearPrintArea     = 3022,
-                    cWSMethodSetNamedRange      = 3023,
-                    cWSMethodDelNamedRange      = 3024;
+	cWSMethodColWidth           = 3001,
+	cWSMethodRowHeight          = 3002,
+	cWSMethodSetCol             = 3003,
+	cWSMethodSetRow             = 3004,
+	cWSMethodGetMerge           = 3005,
+	cWSMethodSetMerge           = 3006,
+	cWSMethodDelMerge           = 3007,
+	cWSMethodSetHorzPageBreak   = 3008,
+	cWSMethodSetVertPageBreak   = 3009,
+	cWSMethodSplit              = 3010,
+	cWSMethodGroupRows          = 3011,
+	cWSMethodGroupCols          = 3012,
+	cWSMethodClear              = 3013,
+	cWSMethodInsertRow          = 3014,
+	cWSMethodInsertCol          = 3015,
+	cWSMethodRemoveRow          = 3016,
+	cWSMethodRemoveCol          = 3017,
+	cWSMethodSetPrintRepeatRows = 3018,
+	cWSMethodSetPrintRepeatCols = 3019,
+	cWSMethodSetPrintArea       = 3020,
+	cWSMethodClearPrintRepeats  = 3021,
+	cWSMethodClearPrintArea     = 3022,
+	cWSMethodSetNamedRange      = 3023,
+	cWSMethodDelNamedRange      = 3024;
 
 /**************************************************************************************************
- **                                 INSTANCE METHODS                                             **
- **************************************************************************************************/
+**                                 INSTANCE METHODS                                             **
+**************************************************************************************************/
 
 // Call a method
 qlong NVObjWorksheet::methodCall( tThreadData* pThreadData )
@@ -131,152 +131,152 @@ qlong NVObjWorksheet::methodCall( tThreadData* pThreadData )
 		callErrorMethod( pThreadData, ERR_METHOD_FAILED );
 		return qfalse;
 	}
-	
+
 	switch( funcId )
 	{
-		case cWSMethodCell:
-			pThreadData->mCurMethodName = "$cell";
-			result = methodCell(pThreadData, paramCount);
-			break;
-		case cWSMethodColWidth:
-			pThreadData->mCurMethodName = "$colWidth";
-			result = methodColWidth(pThreadData, paramCount);
-			break;
-		case cWSMethodRowHeight:
-			pThreadData->mCurMethodName = "$rowHeight";
-			result = methodRowHeight(pThreadData, paramCount);
-			break;
-		case cWSMethodSetCol:
-			pThreadData->mCurMethodName = "$setCol";
-			result = methodSetCol(pThreadData, paramCount);
-			break;
-		case cWSMethodSetRow:
-			pThreadData->mCurMethodName = "$setRow";
-			result = methodSetRow(pThreadData, paramCount);
-			break;
-		case cWSMethodGetMerge:
-			pThreadData->mCurMethodName = "$getMerge";
-			result = methodGetMerge(pThreadData, paramCount);
-			break;
-		case cWSMethodSetMerge:
-			pThreadData->mCurMethodName = "$setMerge";
-			result = methodSetMerge(pThreadData, paramCount);
-			break;
-		case cWSMethodDelMerge:
-			pThreadData->mCurMethodName = "$delMerge";
-			result = methodDelMerge(pThreadData, paramCount);
-			break;
-		case cWSMethodSetHorzPageBreak:
-			pThreadData->mCurMethodName = "$setHorzPageBreak";
-			result = methodSetHorzPageBreak(pThreadData, paramCount);
-			break;
-		case cWSMethodSetVertPageBreak:
-			pThreadData->mCurMethodName = "$setVertPageBreak";
-			result = methodSetVertPageBreak(pThreadData, paramCount);
-			break;
-		case cWSMethodSplit:
-			pThreadData->mCurMethodName = "$split";
-			result = methodSplit(pThreadData, paramCount);
-			break;
-		case cWSMethodGroupRows:
-			pThreadData->mCurMethodName = "$groupRows";
-			result = methodGroupRows(pThreadData, paramCount);
-			break;
-		case cWSMethodGroupCols:
-			pThreadData->mCurMethodName = "$groupCols";
-			result = methodGroupCols(pThreadData, paramCount);
-			break;
-		case cWSMethodClear:
-			pThreadData->mCurMethodName = "$clear";
-			result = methodClear(pThreadData, paramCount);
-			break;
-		case cWSMethodInsertRow:
-			pThreadData->mCurMethodName = "$insertRow";
-			result = methodInsertRow(pThreadData, paramCount);
-			break;
-		case cWSMethodInsertCol:
-			pThreadData->mCurMethodName = "$insertCol";
-			result = methodInsertCol(pThreadData, paramCount);
-			break;
-		case cWSMethodRemoveRow:
-			pThreadData->mCurMethodName = "$removeRow";
-			result = methodRemoveRow(pThreadData, paramCount);
-			break;
-		case cWSMethodRemoveCol:
-			pThreadData->mCurMethodName = "$removeCol";
-			result = methodRemoveCol(pThreadData, paramCount);
-			break;
-		case cWSMethodSetPrintRepeatRows:
-			pThreadData->mCurMethodName = "$setPrintRepeatRows";
-			result = methodSetPrintRepeatRows(pThreadData, paramCount);
-			break;
-		case cWSMethodSetPrintRepeatCols:
-			pThreadData->mCurMethodName = "$setPrintRepeatCols";
-			result = methodSetPrintRepeatCols(pThreadData, paramCount);
-			break;
-		case cWSMethodSetPrintArea:
-			pThreadData->mCurMethodName = "$setPrintArea";
-			result = methodSetPrintArea(pThreadData, paramCount);
-			break;
-		case cWSMethodClearPrintRepeats:
-			pThreadData->mCurMethodName = "$clearPrintRepeats";
-			result = methodClearPrintRepeats(pThreadData, paramCount);
-			break;
-		case cWSMethodClearPrintArea:
-			pThreadData->mCurMethodName = "$clearPrintArea";
-			result = methodClearPrintArea(pThreadData, paramCount);
-			break;
-		case cWSMethodSetNamedRange:
-			pThreadData->mCurMethodName = "$setNamedRange";
-			result = methodSetNamedRange(pThreadData, paramCount);
-			break;
-		case cWSMethodDelNamedRange:
-			pThreadData->mCurMethodName = "$delNamedRange";
-			result = methodDelNamedRange(pThreadData, paramCount);
-			break;
+	case cWSMethodCell:
+		pThreadData->mCurMethodName = "$cell";
+		result = methodCell(pThreadData, paramCount);
+		break;
+	case cWSMethodColWidth:
+		pThreadData->mCurMethodName = "$colWidth";
+		result = methodColWidth(pThreadData, paramCount);
+		break;
+	case cWSMethodRowHeight:
+		pThreadData->mCurMethodName = "$rowHeight";
+		result = methodRowHeight(pThreadData, paramCount);
+		break;
+	case cWSMethodSetCol:
+		pThreadData->mCurMethodName = "$setCol";
+		result = methodSetCol(pThreadData, paramCount);
+		break;
+	case cWSMethodSetRow:
+		pThreadData->mCurMethodName = "$setRow";
+		result = methodSetRow(pThreadData, paramCount);
+		break;
+	case cWSMethodGetMerge:
+		pThreadData->mCurMethodName = "$getMerge";
+		result = methodGetMerge(pThreadData, paramCount);
+		break;
+	case cWSMethodSetMerge:
+		pThreadData->mCurMethodName = "$setMerge";
+		result = methodSetMerge(pThreadData, paramCount);
+		break;
+	case cWSMethodDelMerge:
+		pThreadData->mCurMethodName = "$delMerge";
+		result = methodDelMerge(pThreadData, paramCount);
+		break;
+	case cWSMethodSetHorzPageBreak:
+		pThreadData->mCurMethodName = "$setHorzPageBreak";
+		result = methodSetHorzPageBreak(pThreadData, paramCount);
+		break;
+	case cWSMethodSetVertPageBreak:
+		pThreadData->mCurMethodName = "$setVertPageBreak";
+		result = methodSetVertPageBreak(pThreadData, paramCount);
+		break;
+	case cWSMethodSplit:
+		pThreadData->mCurMethodName = "$split";
+		result = methodSplit(pThreadData, paramCount);
+		break;
+	case cWSMethodGroupRows:
+		pThreadData->mCurMethodName = "$groupRows";
+		result = methodGroupRows(pThreadData, paramCount);
+		break;
+	case cWSMethodGroupCols:
+		pThreadData->mCurMethodName = "$groupCols";
+		result = methodGroupCols(pThreadData, paramCount);
+		break;
+	case cWSMethodClear:
+		pThreadData->mCurMethodName = "$clear";
+		result = methodClear(pThreadData, paramCount);
+		break;
+	case cWSMethodInsertRow:
+		pThreadData->mCurMethodName = "$insertRow";
+		result = methodInsertRow(pThreadData, paramCount);
+		break;
+	case cWSMethodInsertCol:
+		pThreadData->mCurMethodName = "$insertCol";
+		result = methodInsertCol(pThreadData, paramCount);
+		break;
+	case cWSMethodRemoveRow:
+		pThreadData->mCurMethodName = "$removeRow";
+		result = methodRemoveRow(pThreadData, paramCount);
+		break;
+	case cWSMethodRemoveCol:
+		pThreadData->mCurMethodName = "$removeCol";
+		result = methodRemoveCol(pThreadData, paramCount);
+		break;
+	case cWSMethodSetPrintRepeatRows:
+		pThreadData->mCurMethodName = "$setPrintRepeatRows";
+		result = methodSetPrintRepeatRows(pThreadData, paramCount);
+		break;
+	case cWSMethodSetPrintRepeatCols:
+		pThreadData->mCurMethodName = "$setPrintRepeatCols";
+		result = methodSetPrintRepeatCols(pThreadData, paramCount);
+		break;
+	case cWSMethodSetPrintArea:
+		pThreadData->mCurMethodName = "$setPrintArea";
+		result = methodSetPrintArea(pThreadData, paramCount);
+		break;
+	case cWSMethodClearPrintRepeats:
+		pThreadData->mCurMethodName = "$clearPrintRepeats";
+		result = methodClearPrintRepeats(pThreadData, paramCount);
+		break;
+	case cWSMethodClearPrintArea:
+		pThreadData->mCurMethodName = "$clearPrintArea";
+		result = methodClearPrintArea(pThreadData, paramCount);
+		break;
+	case cWSMethodSetNamedRange:
+		pThreadData->mCurMethodName = "$setNamedRange";
+		result = methodSetNamedRange(pThreadData, paramCount);
+		break;
+	case cWSMethodDelNamedRange:
+		pThreadData->mCurMethodName = "$delNamedRange";
+		result = methodDelNamedRange(pThreadData, paramCount);
+		break;
 	}
 
 	// Check for errors to notify Omnis developer in $error
 	callErrorMethod( pThreadData, result );
-	
+
 	return 0L;
 }
 
 /**************************************************************************************************
- **                                PROPERTIES                                                    **
- **************************************************************************************************/
+**                                PROPERTIES                                                    **
+**************************************************************************************************/
 
 // Assignability of properties
 qlong NVObjWorksheet::canAssignProperty( tThreadData* pThreadData, qlong propID ) {
 	switch (propID) {
-		case cWSPropertyGroupSummaryBelow:
-		case cWSPropertyGroupSummaryRight:
-		case cWSPropertyPaper:
-		case cWSPropertyDisplayGridlines:
-		case cWSPropertyPrintGridlines:
-		case cWSPropertyZoom:
-		case cWSPropertyPrintZoom:
-		case cWSPropertyLandscape:
-		case cWSPropertyHeader:
-		case cWSPropertyHeaderMargin:
-		case cWSPropertyFooter:
-		case cWSPropertyFooterMargin:
-		case cWSPropertyHCenter:
-		case cWSPropertyVCenter:
-		case cWSPropertyMarginLeft:
-		case cWSPropertyMarginRight:
-		case cWSPropertyMarginTop:
-		case cWSPropertyMarginBottom:
-		case cWSPropertyPrintRowCol:
-		case cWSPropertyProtected:
-			return qtrue;
-		case cWSPropertyFirstRow:
-		case cWSPropertyLastRow:
-		case cWSPropertyFirstCol:
-		case cWSPropertyLastCol:
-			return qfalse;
-		default:
-			return qfalse;
+	case cWSPropertyGroupSummaryBelow:
+	case cWSPropertyGroupSummaryRight:
+	case cWSPropertyPaper:
+	case cWSPropertyDisplayGridlines:
+	case cWSPropertyPrintGridlines:
+	case cWSPropertyZoom:
+	case cWSPropertyPrintZoom:
+	case cWSPropertyLandscape:
+	case cWSPropertyHeader:
+	case cWSPropertyHeaderMargin:
+	case cWSPropertyFooter:
+	case cWSPropertyFooterMargin:
+	case cWSPropertyHCenter:
+	case cWSPropertyVCenter:
+	case cWSPropertyMarginLeft:
+	case cWSPropertyMarginRight:
+	case cWSPropertyMarginTop:
+	case cWSPropertyMarginBottom:
+	case cWSPropertyPrintRowCol:
+	case cWSPropertyProtected:
+		return qtrue;
+	case cWSPropertyFirstRow:
+	case cWSPropertyLastRow:
+	case cWSPropertyFirstCol:
+	case cWSPropertyLastCol:
+		return qfalse;
+	default:
+		return qfalse;
 	}
 }
 
@@ -288,145 +288,145 @@ qlong NVObjWorksheet::getProperty( tThreadData* pThreadData )
 		ECOaddParam(pThreadData->mEci, &fValReturn);
 		return qtrue;
 	}
-	
+
 	// Generic variables for returning the properties
 	int intAssign;
 	bool boolAssign;
 	double doubleAssign;
 	const wchar_t* rawStringTest;
-	
+
 	qlong propID = ECOgetId( pThreadData->mEci );
 	switch( propID ) {
-		case cWSPropertyFirstRow:
-			intAssign = sheet->firstRow() + 1; // Index off for Omnis' sake
-			getEXTFldValFromInt(fValReturn, intAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyLastRow:
-			intAssign = sheet->lastRow() + 1;  // Index off for Omnis' sake
-			getEXTFldValFromInt(fValReturn, intAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyFirstCol:
-			intAssign = sheet->firstCol() + 1;  // Index off for Omnis' sake
-			getEXTFldValFromInt(fValReturn, intAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyLastCol:
-			intAssign = sheet->lastCol() + 1;  // Index off for Omnis' sake
-			getEXTFldValFromInt(fValReturn, intAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyGroupSummaryBelow:
-			boolAssign = sheet->groupSummaryBelow();
-			getEXTFldValFromBool(fValReturn, boolAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyGroupSummaryRight:
-			boolAssign = sheet->groupSummaryRight();
-			getEXTFldValFromBool(fValReturn, boolAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyPaper:
-			intAssign = getOmnisPaperConstant(sheet->paper());
-			getEXTFldValFromConstant(fValReturn, PAPER_CONST_START+(intAssign-1), kConstResourcePrefix);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyDisplayGridlines:
-			boolAssign = sheet->displayGridlines();
-			getEXTFldValFromBool(fValReturn, boolAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyPrintGridlines:
-			boolAssign = sheet->printGridlines();
-			getEXTFldValFromBool(fValReturn, boolAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyZoom:
-			intAssign = sheet->zoom();
-			getEXTFldValFromInt(fValReturn, intAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyPrintZoom:
-			intAssign = sheet->printZoom();
-			getEXTFldValFromInt(fValReturn, intAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyLandscape:
-			boolAssign = sheet->landscape();
-			getEXTFldValFromBool(fValReturn, boolAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyHeader:
-			rawStringTest = sheet->header();
-			if (rawStringTest) {
-				// Valid string
-				getEXTFldValFromWString(fValReturn, rawStringTest);
-			} else {
-				getEXTFldValFromString(fValReturn, "");
-			}
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyHeaderMargin:
-			doubleAssign = sheet->headerMargin();
-			getEXTFldValFromDouble(fValReturn, doubleAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyFooter:
-			rawStringTest = sheet->footer();
-			if (rawStringTest) {
-				// Valid string
-				getEXTFldValFromWChar(fValReturn, rawStringTest);
-			} else {
-				getEXTFldValFromString(fValReturn, "");
-			}
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyFooterMargin:
-			doubleAssign = sheet->footerMargin();
-			getEXTFldValFromDouble(fValReturn, doubleAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyHCenter:
-			boolAssign = sheet->hCenter();
-			getEXTFldValFromBool(fValReturn, boolAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyVCenter:
-			boolAssign = sheet->vCenter();
-			getEXTFldValFromBool(fValReturn, boolAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyMarginLeft:
-			doubleAssign = sheet->marginLeft();
-			getEXTFldValFromDouble(fValReturn, doubleAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyMarginRight:
-			doubleAssign = sheet->marginRight();
-			getEXTFldValFromDouble(fValReturn, doubleAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyMarginTop:
-			doubleAssign = sheet->marginTop();
-			getEXTFldValFromDouble(fValReturn, doubleAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyMarginBottom:
-			doubleAssign = sheet->marginBottom();
-			getEXTFldValFromDouble(fValReturn, doubleAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyPrintRowCol:
-			boolAssign = sheet->printRowCol();
-			getEXTFldValFromBool(fValReturn, boolAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	
-		case cWSPropertyProtected:
-			boolAssign = sheet->protect();
-			getEXTFldValFromBool(fValReturn, boolAssign);
-			ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
-			break;	       
+	case cWSPropertyFirstRow:
+		intAssign = sheet->firstRow() + 1; // Index off for Omnis' sake
+		getEXTFldValFromInt(fValReturn, intAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyLastRow:
+		intAssign = sheet->lastRow() + 1;  // Index off for Omnis' sake
+		getEXTFldValFromInt(fValReturn, intAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyFirstCol:
+		intAssign = sheet->firstCol() + 1;  // Index off for Omnis' sake
+		getEXTFldValFromInt(fValReturn, intAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyLastCol:
+		intAssign = sheet->lastCol() + 1;  // Index off for Omnis' sake
+		getEXTFldValFromInt(fValReturn, intAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyGroupSummaryBelow:
+		boolAssign = sheet->groupSummaryBelow();
+		getEXTFldValFromBool(fValReturn, boolAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyGroupSummaryRight:
+		boolAssign = sheet->groupSummaryRight();
+		getEXTFldValFromBool(fValReturn, boolAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyPaper:
+		intAssign = getOmnisPaperConstant(sheet->paper());
+		getEXTFldValFromConstant(fValReturn, PAPER_CONST_START+(intAssign-1), kConstResourcePrefix);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyDisplayGridlines:
+		boolAssign = sheet->displayGridlines();
+		getEXTFldValFromBool(fValReturn, boolAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyPrintGridlines:
+		boolAssign = sheet->printGridlines();
+		getEXTFldValFromBool(fValReturn, boolAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyZoom:
+		intAssign = sheet->zoom();
+		getEXTFldValFromInt(fValReturn, intAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyPrintZoom:
+		intAssign = sheet->printZoom();
+		getEXTFldValFromInt(fValReturn, intAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyLandscape:
+		boolAssign = sheet->landscape();
+		getEXTFldValFromBool(fValReturn, boolAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyHeader:
+		rawStringTest = sheet->header();
+		if (rawStringTest) {
+			// Valid string
+			getEXTFldValFromWString(fValReturn, rawStringTest);
+		} else {
+			getEXTFldValFromString(fValReturn, "");
+		}
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyHeaderMargin:
+		doubleAssign = sheet->headerMargin();
+		getEXTFldValFromDouble(fValReturn, doubleAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyFooter:
+		rawStringTest = sheet->footer();
+		if (rawStringTest) {
+			// Valid string
+			getEXTFldValFromWChar(fValReturn, rawStringTest);
+		} else {
+			getEXTFldValFromString(fValReturn, "");
+		}
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyFooterMargin:
+		doubleAssign = sheet->footerMargin();
+		getEXTFldValFromDouble(fValReturn, doubleAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyHCenter:
+		boolAssign = sheet->hCenter();
+		getEXTFldValFromBool(fValReturn, boolAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyVCenter:
+		boolAssign = sheet->vCenter();
+		getEXTFldValFromBool(fValReturn, boolAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyMarginLeft:
+		doubleAssign = sheet->marginLeft();
+		getEXTFldValFromDouble(fValReturn, doubleAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyMarginRight:
+		doubleAssign = sheet->marginRight();
+		getEXTFldValFromDouble(fValReturn, doubleAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyMarginTop:
+		doubleAssign = sheet->marginTop();
+		getEXTFldValFromDouble(fValReturn, doubleAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyMarginBottom:
+		doubleAssign = sheet->marginBottom();
+		getEXTFldValFromDouble(fValReturn, doubleAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyPrintRowCol:
+		boolAssign = sheet->printRowCol();
+		getEXTFldValFromBool(fValReturn, boolAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	
+	case cWSPropertyProtected:
+		boolAssign = sheet->protect();
+		getEXTFldValFromBool(fValReturn, boolAssign);
+		ECOaddParam(pThreadData->mEci, &fValReturn); // Return to caller
+		break;	       
 	}
 
 	return 1L;
@@ -438,179 +438,179 @@ qlong NVObjWorksheet::setProperty( tThreadData* pThreadData )
 	if (!checkDependencies()) {
 		return qfalse;
 	}
-	
+
 	// Retrieve value to set for property, always in first parameter
 	EXTfldval fVal;
 	if( getParamVar( pThreadData->mEci, 1, fVal) == qfalse ) 
 		return qfalse;
-	
+
 	// Generic variables for testing and setting the properties
 	int intAssign, intTest;
 	bool boolAssign, boolTest;
 	double doubleAssign, doubleTest;
-    std::wstring stringAssign, stringTest;
+	std::wstring stringAssign, stringTest;
 	const wchar_t* rawStringTest;
-	
+
 	// Assign to the appropriate property
 	// All assignments are protected so that libXL is only called when something changes.
 	// This is important since Omnis "sets" variables repeatedly when viewed by instance viewer.
 	qlong propID = ECOgetId( pThreadData->mEci );
 	switch( propID ) {
-		case cWSPropertyGroupSummaryBelow:
-			boolAssign = getBoolFromEXTFldVal(fVal);
-			boolTest = sheet->groupSummaryBelow();
-			if( boolAssign != boolTest)
-				sheet->setGroupSummaryBelow(boolAssign);
-			break;	
-		case cWSPropertyGroupSummaryRight:
-			boolAssign = getBoolFromEXTFldVal(fVal);
-			boolTest = sheet->groupSummaryRight();
-			if( boolAssign != boolTest)
-				sheet->setGroupSummaryRight(boolAssign);
-			break;	
-		case cWSPropertyPaper:
-			intAssign = getIntFromEXTFldVal(fVal, PAPER_CONST_START, PAPER_CONST_END);
-			if (intAssign != -1  && isValidPaper(intAssign)) {
-				intTest = getOmnisPaperConstant(sheet->paper());
-				if (intAssign != intTest)
-					sheet->setPaper(getPaperConstant(intAssign));
-			}
-			break;	
-		case cWSPropertyDisplayGridlines:
-			boolAssign = getBoolFromEXTFldVal(fVal);
-			boolTest = sheet->displayGridlines();
-			if( boolAssign != boolTest)
-				sheet->setDisplayGridlines(boolAssign);
-			break;	
-		case cWSPropertyPrintGridlines:
-			boolAssign = getBoolFromEXTFldVal(fVal);
-			boolTest = sheet->printGridlines();
-			if( boolAssign != boolTest)
-				sheet->setPrintGridlines(boolAssign);
-			break;	
-		case cWSPropertyZoom:
-			intAssign = getIntFromEXTFldVal(fVal);
-			intTest = sheet->zoom();
+	case cWSPropertyGroupSummaryBelow:
+		boolAssign = getBoolFromEXTFldVal(fVal);
+		boolTest = sheet->groupSummaryBelow();
+		if( boolAssign != boolTest)
+			sheet->setGroupSummaryBelow(boolAssign);
+		break;	
+	case cWSPropertyGroupSummaryRight:
+		boolAssign = getBoolFromEXTFldVal(fVal);
+		boolTest = sheet->groupSummaryRight();
+		if( boolAssign != boolTest)
+			sheet->setGroupSummaryRight(boolAssign);
+		break;	
+	case cWSPropertyPaper:
+		intAssign = getIntFromEXTFldVal(fVal, PAPER_CONST_START, PAPER_CONST_END);
+		if (intAssign != -1  && isValidPaper(intAssign)) {
+			intTest = getOmnisPaperConstant(sheet->paper());
 			if (intAssign != intTest)
-				sheet->setZoom(intAssign);
-			break;	
-		case cWSPropertyPrintZoom:
-			intAssign = getIntFromEXTFldVal(fVal);
-			intTest = sheet->printZoom();
-			if (intAssign != intTest)
-				sheet->setPrintZoom(intAssign);
-			break;	
-		case cWSPropertyLandscape:
-			boolAssign = getBoolFromEXTFldVal(fVal);
-			boolTest = sheet->landscape();
-			if( boolAssign != boolTest)
-				sheet->setLandscape(boolAssign);
-			break;	
-		case cWSPropertyHeader:
-			stringAssign = getWStringFromEXTFldVal(fVal);
-			rawStringTest = sheet->header();
-			if (rawStringTest)
-				stringTest = rawStringTest;
-			else
-				stringTest = L"";
+				sheet->setPaper(getPaperConstant(intAssign));
+		}
+		break;	
+	case cWSPropertyDisplayGridlines:
+		boolAssign = getBoolFromEXTFldVal(fVal);
+		boolTest = sheet->displayGridlines();
+		if( boolAssign != boolTest)
+			sheet->setDisplayGridlines(boolAssign);
+		break;	
+	case cWSPropertyPrintGridlines:
+		boolAssign = getBoolFromEXTFldVal(fVal);
+		boolTest = sheet->printGridlines();
+		if( boolAssign != boolTest)
+			sheet->setPrintGridlines(boolAssign);
+		break;	
+	case cWSPropertyZoom:
+		intAssign = getIntFromEXTFldVal(fVal);
+		intTest = sheet->zoom();
+		if (intAssign != intTest)
+			sheet->setZoom(intAssign);
+		break;	
+	case cWSPropertyPrintZoom:
+		intAssign = getIntFromEXTFldVal(fVal);
+		intTest = sheet->printZoom();
+		if (intAssign != intTest)
+			sheet->setPrintZoom(intAssign);
+		break;	
+	case cWSPropertyLandscape:
+		boolAssign = getBoolFromEXTFldVal(fVal);
+		boolTest = sheet->landscape();
+		if( boolAssign != boolTest)
+			sheet->setLandscape(boolAssign);
+		break;	
+	case cWSPropertyHeader:
+		stringAssign = getWStringFromEXTFldVal(fVal);
+		rawStringTest = sheet->header();
+		if (rawStringTest)
+			stringTest = rawStringTest;
+		else
+			stringTest = L"";
 
-			if (stringAssign != stringTest)
-				sheet->setHeader(stringAssign.c_str(), sheet->headerMargin());
-			
-			break;	
-		case cWSPropertyHeaderMargin:
-			doubleAssign = getIntFromEXTFldVal(fVal);
-			doubleTest = sheet->headerMargin();
-			rawStringTest = sheet->header();
-			if (rawStringTest)
-				stringTest = rawStringTest;
-			else
-				stringTest = L"";
-			
-			if (doubleAssign != doubleTest)
-				sheet->setHeader(stringAssign.c_str(), doubleAssign);
-			break;
-		case cWSPropertyFooter:
-			stringAssign = getWStringFromEXTFldVal(fVal);
-			rawStringTest = sheet->footer();
-			if (rawStringTest)
-				stringTest = rawStringTest;
-			else
-				stringTest = L"";
-			
-			if (stringAssign != stringTest)
-				sheet->setFooter(stringAssign.c_str(), sheet->footerMargin());
-			
-			break;	
-		case cWSPropertyFooterMargin:
-			doubleAssign = getIntFromEXTFldVal(fVal);
-			doubleTest = sheet->footerMargin();
-			rawStringTest = sheet->footer();
-			if (rawStringTest)
-				stringTest = rawStringTest;
-			else
-				stringTest = L"";
-			
-			if (doubleAssign != doubleTest)
-				sheet->setFooter(stringAssign.c_str(), doubleAssign);
-			
-			break;	
-		case cWSPropertyHCenter:
-			boolAssign = getBoolFromEXTFldVal(fVal);
-			boolTest = sheet->hCenter();
-			if( boolAssign != boolTest)
-				sheet->setHCenter(boolAssign);
-			break;	
-		case cWSPropertyVCenter:
-			boolAssign = getBoolFromEXTFldVal(fVal);
-			boolTest = sheet->vCenter();
-			if( boolAssign != boolTest)
-				sheet->setVCenter(boolAssign);
-			break;	
-		case cWSPropertyMarginLeft:
-			doubleAssign = getDoubleFromEXTFldVal(fVal);
-			doubleTest = sheet->marginLeft();
-			if (doubleAssign != doubleTest)
-				sheet->setMarginLeft(doubleAssign);
-			break;	
-		case cWSPropertyMarginRight:
-			doubleAssign = getDoubleFromEXTFldVal(fVal);
-			doubleTest = sheet->marginRight();
-			if (doubleAssign != doubleTest)
-				sheet->setMarginRight(doubleAssign);
-			break;	
-		case cWSPropertyMarginTop:
-			doubleAssign = getDoubleFromEXTFldVal(fVal);
-			doubleTest = sheet->marginTop();
-			if (doubleAssign != doubleTest)
-				sheet->setMarginTop(doubleAssign);
-			break;	
-		case cWSPropertyMarginBottom:
-			doubleAssign = getDoubleFromEXTFldVal(fVal);
-			doubleTest = sheet->marginBottom();
-			if (doubleAssign != doubleTest)
-				sheet->setMarginBottom(doubleAssign);
-			break;	
-		case cWSPropertyPrintRowCol:
-			boolAssign = getBoolFromEXTFldVal(fVal);
-			boolTest = sheet->printRowCol();
-			if( boolAssign != boolTest)
-				sheet->setPrintRowCol(boolAssign);
-			break;	
-		case cWSPropertyProtected:
-			boolAssign = getBoolFromEXTFldVal(fVal);
-			boolTest = sheet->protect();
-			if( boolAssign != boolTest)
-				sheet->setProtect(boolAssign);
-			break;	       
+		if (stringAssign != stringTest)
+			sheet->setHeader(stringAssign.c_str(), sheet->headerMargin());
+
+		break;	
+	case cWSPropertyHeaderMargin:
+		doubleAssign = getIntFromEXTFldVal(fVal);
+		doubleTest = sheet->headerMargin();
+		rawStringTest = sheet->header();
+		if (rawStringTest)
+			stringTest = rawStringTest;
+		else
+			stringTest = L"";
+
+		if (doubleAssign != doubleTest)
+			sheet->setHeader(stringAssign.c_str(), doubleAssign);
+		break;
+	case cWSPropertyFooter:
+		stringAssign = getWStringFromEXTFldVal(fVal);
+		rawStringTest = sheet->footer();
+		if (rawStringTest)
+			stringTest = rawStringTest;
+		else
+			stringTest = L"";
+
+		if (stringAssign != stringTest)
+			sheet->setFooter(stringAssign.c_str(), sheet->footerMargin());
+
+		break;	
+	case cWSPropertyFooterMargin:
+		doubleAssign = getIntFromEXTFldVal(fVal);
+		doubleTest = sheet->footerMargin();
+		rawStringTest = sheet->footer();
+		if (rawStringTest)
+			stringTest = rawStringTest;
+		else
+			stringTest = L"";
+
+		if (doubleAssign != doubleTest)
+			sheet->setFooter(stringAssign.c_str(), doubleAssign);
+
+		break;	
+	case cWSPropertyHCenter:
+		boolAssign = getBoolFromEXTFldVal(fVal);
+		boolTest = sheet->hCenter();
+		if( boolAssign != boolTest)
+			sheet->setHCenter(boolAssign);
+		break;	
+	case cWSPropertyVCenter:
+		boolAssign = getBoolFromEXTFldVal(fVal);
+		boolTest = sheet->vCenter();
+		if( boolAssign != boolTest)
+			sheet->setVCenter(boolAssign);
+		break;	
+	case cWSPropertyMarginLeft:
+		doubleAssign = getDoubleFromEXTFldVal(fVal);
+		doubleTest = sheet->marginLeft();
+		if (doubleAssign != doubleTest)
+			sheet->setMarginLeft(doubleAssign);
+		break;	
+	case cWSPropertyMarginRight:
+		doubleAssign = getDoubleFromEXTFldVal(fVal);
+		doubleTest = sheet->marginRight();
+		if (doubleAssign != doubleTest)
+			sheet->setMarginRight(doubleAssign);
+		break;	
+	case cWSPropertyMarginTop:
+		doubleAssign = getDoubleFromEXTFldVal(fVal);
+		doubleTest = sheet->marginTop();
+		if (doubleAssign != doubleTest)
+			sheet->setMarginTop(doubleAssign);
+		break;	
+	case cWSPropertyMarginBottom:
+		doubleAssign = getDoubleFromEXTFldVal(fVal);
+		doubleTest = sheet->marginBottom();
+		if (doubleAssign != doubleTest)
+			sheet->setMarginBottom(doubleAssign);
+		break;	
+	case cWSPropertyPrintRowCol:
+		boolAssign = getBoolFromEXTFldVal(fVal);
+		boolTest = sheet->printRowCol();
+		if( boolAssign != boolTest)
+			sheet->setPrintRowCol(boolAssign);
+		break;	
+	case cWSPropertyProtected:
+		boolAssign = getBoolFromEXTFldVal(fVal);
+		boolTest = sheet->protect();
+		if( boolAssign != boolTest)
+			sheet->setProtect(boolAssign);
+		break;	       
 	}
 
 	return 1L;
 }
 
 /**************************************************************************************************
- **                                        STATIC METHODS                                        **
- **************************************************************************************************/
+**                                        STATIC METHODS                                        **
+**************************************************************************************************/
 
 /* METHODS */
 
@@ -710,7 +710,7 @@ ECOparam cWorksheetMethodsParamsTable[] =
 	3860, fftInteger,   0, 0,
 	3861, fftInteger,   0, 0,
 	// $delNamedRange
-    3862, fftCharacter, 0, 0,
+	3862, fftCharacter, 0, 0,
 };
 
 // Table of Methods available for Simple
@@ -755,7 +755,7 @@ ECOmethodEvent cWorksheetMethodsTable[] =
 qlong NVObjWorksheet::returnMethods(tThreadData* pThreadData)
 {
 	const qshort cWSMethodCount = sizeof(cWorksheetMethodsTable) / sizeof(ECOmethodEvent);
-	
+
 	return ECOreturnMethods( gInstLib, pThreadData->mEci, &cWorksheetMethodsTable[0], cWSMethodCount );
 }
 
@@ -807,15 +807,15 @@ qlong NVObjWorksheet::returnProperties( tThreadData* pThreadData )
 }
 
 /**************************************************************************************************
- **                              OMNIS VISIBLE METHODS                                           **
- **************************************************************************************************/
+**                              OMNIS VISIBLE METHODS                                           **
+**************************************************************************************************/
 
 tResult NVObjWorksheet::methodCell( tThreadData* pThreadData, qshort pParamCount ) {
 	// Since Cell is only an object within Omnis, there is no call to libXL
 	qlong omRow;
 	int row, col;
 	EXTfldval colVal;
-	
+
 	// Read parameters.  
 	// Param 1: Row
 	if ( getParamLong(pThreadData, 1, omRow) != qtrue ) {
@@ -823,7 +823,7 @@ tResult NVObjWorksheet::methodCell( tThreadData* pThreadData, qshort pParamCount
 		return ERR_BAD_PARAMS;
 	} 
 	row = static_cast<int>(omRow) - 1;  // Index off 0 for LibXL's sake
-	
+
 	// Param 2: Column
 	if ( getParamVar(pThreadData, 2, colVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "Second parameter, col, is required.";
@@ -839,18 +839,18 @@ tResult NVObjWorksheet::methodCell( tThreadData* pThreadData, qshort pParamCount
 	NVObjCell* retCell = createNVObj<NVObjCell>(pThreadData);
 	retCell->setDependencies(numFormats, book, sheet, row, col);
 	retCell->setErrorInstance(mErrorInst);
-	
+
 	// Return Cell object to caller
 	EXTfldval retVal;
 	getEXTFldValForObj<NVObjCell>(retVal, retCell);
 	ECOaddParam(pThreadData->mEci, &retVal); 
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Set column width
 tResult NVObjWorksheet::methodColWidth( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Param 1: Column
 	EXTfldval colVal;
 	if ( getParamVar(pThreadData, 1, colVal) != qtrue ) {
@@ -862,21 +862,21 @@ tResult NVObjWorksheet::methodColWidth( tThreadData* pThreadData, qshort pParamC
 		pThreadData->mExtraErrorText = "Unknown first parameter.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Call LibXL 
 	double retWidth = sheet->colWidth(col);
-	
+
 	// Return
 	EXTfldval retVal;
 	getEXTFldValFromDouble(retVal, retWidth);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Set row height
 tResult NVObjWorksheet::methodRowHeight( tThreadData* pThreadData, qshort pParamCount ) {
-  
+
 	// Param 1: Row
 	qlong omRow;
 	if ( getParamLong(pThreadData, 1, omRow) != qtrue ) {
@@ -884,15 +884,15 @@ tResult NVObjWorksheet::methodRowHeight( tThreadData* pThreadData, qshort pParam
 		return ERR_BAD_PARAMS;
 	} 
 	int row = static_cast<int>(omRow) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Call LibXL 
 	double retHeight = sheet->rowHeight(row);
-	
+
 	// Return
 	EXTfldval retVal;
 	getEXTFldValFromDouble(retVal, retHeight);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
@@ -909,7 +909,7 @@ tResult NVObjWorksheet::methodSetCol( tThreadData* pThreadData, qshort pParamCou
 		pThreadData->mExtraErrorText = "Unknown first parameter.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Param 2: Last Column
 	EXTfldval colLastVal;
 	if ( getParamVar(pThreadData, 2, colLastVal) != qtrue ) {
@@ -921,7 +921,7 @@ tResult NVObjWorksheet::methodSetCol( tThreadData* pThreadData, qshort pParamCou
 		pThreadData->mExtraErrorText = "Unknown second parameter.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Param 3: Width
 	EXTfldval widthVal;
 	if ( getParamVar(pThreadData, 3, widthVal) != qtrue ) {
@@ -929,7 +929,7 @@ tResult NVObjWorksheet::methodSetCol( tThreadData* pThreadData, qshort pParamCou
 		return ERR_BAD_PARAMS;
 	}
 	double width = getDoubleFromEXTFldVal(widthVal);
-	
+
 	// Param 4: (Optional) Format
 	EXTfldval formatVal;
 	NVObjFormat* omFormat;
@@ -942,7 +942,7 @@ tResult NVObjWorksheet::methodSetCol( tThreadData* pThreadData, qshort pParamCou
 		}
 		fmt = omFormat->getFormat(); // Retrieve
 	}
-	
+
 	// Param 5: (Optional) Hidden
 	qbool omHidden;
 	bool hidden;
@@ -951,7 +951,7 @@ tResult NVObjWorksheet::methodSetCol( tThreadData* pThreadData, qshort pParamCou
 		hidden = getBoolFromQBool(omHidden);
 		passedHidden = true;
 	}
-	
+
 	// Call LibXL depending on which parameters were passed
 	bool retBool;
 	if (passedHidden) {
@@ -961,18 +961,18 @@ tResult NVObjWorksheet::methodSetCol( tThreadData* pThreadData, qshort pParamCou
 	} else {
 		retBool = sheet->setCol(colFirst, colLast, width);
 	}
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Set the height for a given row
 tResult NVObjWorksheet::methodSetRow( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Param 1: Row
 	qlong omRow;
 	if ( getParamLong(pThreadData, 1, omRow) != qtrue ) {
@@ -980,7 +980,7 @@ tResult NVObjWorksheet::methodSetRow( tThreadData* pThreadData, qshort pParamCou
 		return ERR_BAD_PARAMS;
 	} 
 	int row = static_cast<int>(omRow) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 2: Height
 	EXTfldval heightVal;
 	if ( getParamVar(pThreadData, 2, heightVal) != qtrue ) {
@@ -988,7 +988,7 @@ tResult NVObjWorksheet::methodSetRow( tThreadData* pThreadData, qshort pParamCou
 		return ERR_BAD_PARAMS;
 	}
 	double height = getDoubleFromEXTFldVal(heightVal);
-	
+
 	// Param 3: (Optional) Format
 	EXTfldval formatVal;
 	NVObjFormat* omFormat;
@@ -1001,7 +1001,7 @@ tResult NVObjWorksheet::methodSetRow( tThreadData* pThreadData, qshort pParamCou
 		}
 		fmt = omFormat->getFormat(); // Retrieve
 	}
-	
+
 	// Param 4: (Optional) Hidden
 	qbool omHidden;
 	bool hidden;
@@ -1010,7 +1010,7 @@ tResult NVObjWorksheet::methodSetRow( tThreadData* pThreadData, qshort pParamCou
 		hidden = getBoolFromQBool(omHidden);
 		passedHidden = true;
 	}
-	
+
 	// Call LibXL depending on which parameters were passed
 	bool retBool;
 	if (passedHidden) {
@@ -1020,18 +1020,18 @@ tResult NVObjWorksheet::methodSetRow( tThreadData* pThreadData, qshort pParamCou
 	} else {
 		retBool = sheet->setRow(row, height);
 	}
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Gets merged cells for cell at row, col. Result is written in rowFirst, rowLast, colFirst, colLast. Returns false if error occurs. 
 tResult NVObjWorksheet::methodGetMerge( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Param 1: Row
 	qlong omRow;
 	if ( getParamLong(pThreadData, 1, omRow) != qtrue ) {
@@ -1039,7 +1039,7 @@ tResult NVObjWorksheet::methodGetMerge( tThreadData* pThreadData, qshort pParamC
 		return ERR_BAD_PARAMS;
 	} 
 	int row = static_cast<int> (omRow) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 2: Col
 	EXTfldval colVal;
 	if ( getParamVar(pThreadData, 2, colVal) != qtrue ) {
@@ -1051,71 +1051,71 @@ tResult NVObjWorksheet::methodGetMerge( tThreadData* pThreadData, qshort pParamC
 		pThreadData->mExtraErrorText = "Unknown second parameter.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Param 3-6: Return values for first row, last row, first col and last col.
 	EXTfldval rowFirstVal, rowLastVal, colFirstVal, colLastVal;
 	if( getParamVar(pThreadData, 3, rowFirstVal) != qtrue ||
-	    getParamVar(pThreadData, 4, rowLastVal)  != qtrue ||
-	    getParamVar(pThreadData, 5, colFirstVal) != qtrue ||
-	    getParamVar(pThreadData, 6, colLastVal)  != qtrue) 
+		getParamVar(pThreadData, 4, rowLastVal)  != qtrue ||
+		getParamVar(pThreadData, 5, colFirstVal) != qtrue ||
+		getParamVar(pThreadData, 6, colLastVal)  != qtrue) 
 	{
 		pThreadData->mExtraErrorText = "Insufficient parameters.  rowFirst, rowLast, colFirst and colLast must all be passed.";
 		return ERR_BAD_PARAMS;
 	}	
-	
+
 	// Call LibXL
 	int rowFirst, rowLast, colFirst, colLast;
 	bool retBool = sheet->getMerge(row, col, &rowFirst, &rowLast, &colFirst, &colLast);
-	
+
 	if (retBool) {
 		// Return values indexed off of 1, not 0.
 		rowFirst += 1; rowLast += 1;
 		colFirst += 1; colLast += 1;
-		
+
 		// Populate passed in values and notify Omnis that the values have changed
 		getEXTFldValFromInt(rowFirstVal, rowFirst);
 		ECOsetParameterChanged( pThreadData->mEci, 3 );
-		
+
 		getEXTFldValFromInt(rowLastVal, rowLast);
 		ECOsetParameterChanged( pThreadData->mEci, 4 );
-		
+
 		getEXTFldValFromInt(colFirstVal, colFirst);
 		ECOsetParameterChanged( pThreadData->mEci, 5 );
-		
+
 		getEXTFldValFromInt(colLastVal, colLast);
 		ECOsetParameterChanged( pThreadData->mEci, 6 );
 	}
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Sets merged cells for range: rowFirst - rowLast, colFirst - colLast. Returns false if error occurs.
 tResult NVObjWorksheet::methodSetMerge( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Define all parameters
 	qlong omRowFirst, omRowLast;
 	EXTfldval colFirstVal, colLastVal; 
 	int rowFirst, rowLast, colFirst, colLast;
-	
+
 	// Param 1: First row to merge
 	if( getParamLong(pThreadData, 1, omRowFirst) != qtrue) {
 		pThreadData->mExtraErrorText = "First parameter, rowFirst, is required.";
 		return ERR_BAD_PARAMS;
 	}
 	rowFirst = static_cast<int> (omRowFirst) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 2: Last row to merge
 	if( getParamLong(pThreadData, 2, omRowLast) != qtrue) {
 		pThreadData->mExtraErrorText = "Second parameter, rowLast, is required.";
 		return ERR_BAD_PARAMS;
 	}
 	rowLast = static_cast<int> (omRowLast) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 3: First col to merge
 	if ( getParamVar(pThreadData, 3, colFirstVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "Third parameter, colFirst, is required.";
@@ -1126,7 +1126,7 @@ tResult NVObjWorksheet::methodSetMerge( tThreadData* pThreadData, qshort pParamC
 		pThreadData->mExtraErrorText = "Unknown third parameter, colFirst.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Param 4: Last col to merge
 	if ( getParamVar(pThreadData, 4, colLastVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "Fourth parameter, colLast, is required.";
@@ -1137,21 +1137,21 @@ tResult NVObjWorksheet::methodSetMerge( tThreadData* pThreadData, qshort pParamC
 		pThreadData->mExtraErrorText = "Unknown fourth parameter, colLast.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Call LibXL
 	bool retBool = sheet->setMerge(rowFirst, rowLast, colFirst, colLast);
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Removes merged cells. Returns false if error occurs
 tResult NVObjWorksheet::methodDelMerge( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Param 1: Row
 	qlong omRow;
 	if( getParamLong(pThreadData, 1, omRow) != qtrue) {
@@ -1159,7 +1159,7 @@ tResult NVObjWorksheet::methodDelMerge( tThreadData* pThreadData, qshort pParamC
 		return ERR_BAD_PARAMS;
 	}
 	int row = static_cast<int> (omRow) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 2: Column
 	EXTfldval colVal;
 	if ( getParamVar(pThreadData, 2, colVal) != qtrue ) {
@@ -1171,21 +1171,21 @@ tResult NVObjWorksheet::methodDelMerge( tThreadData* pThreadData, qshort pParamC
 		pThreadData->mExtraErrorText = "Unknown second parameter, col.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Call LibXL
 	bool retBool = sheet->delMerge(row, col);
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Sets/removes a horizontal page break. Returns false if error occurs.
 tResult NVObjWorksheet::methodSetHorzPageBreak( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Param 1: Row
 	qlong omRow;
 	if( getParamLong(pThreadData, 1, omRow) != qtrue) {
@@ -1193,7 +1193,7 @@ tResult NVObjWorksheet::methodSetHorzPageBreak( tThreadData* pThreadData, qshort
 		return ERR_BAD_PARAMS;
 	}
 	int row = static_cast<int> (omRow) - 1; // Index off 0 for LibXL's sake
-	
+
 	qbool omPageBreak;
 	bool retBool;
 	if ( getParamBool(pThreadData, 2, omPageBreak) == qtrue ) {
@@ -1203,18 +1203,18 @@ tResult NVObjWorksheet::methodSetHorzPageBreak( tThreadData* pThreadData, qshort
 		// Call LibXL without page break param
 		retBool = sheet->setHorPageBreak(row);
 	}
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Sets/removes a vertical page break. Returns false if error occurs.
 tResult NVObjWorksheet::methodSetVertPageBreak( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Param 1: Column
 	EXTfldval colVal;
 	if ( getParamVar(pThreadData, 1, colVal) != qtrue ) {
@@ -1226,7 +1226,7 @@ tResult NVObjWorksheet::methodSetVertPageBreak( tThreadData* pThreadData, qshort
 		pThreadData->mExtraErrorText = "Unknown first parameter, col.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	qbool omPageBreak;
 	bool retBool;
 	if ( getParamBool(pThreadData, 2, omPageBreak) == qtrue ) {
@@ -1236,18 +1236,18 @@ tResult NVObjWorksheet::methodSetVertPageBreak( tThreadData* pThreadData, qshort
 		// Call LibXL without page break param
 		retBool = sheet->setVerPageBreak(col);
 	}
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Splits a sheet at position (row, col).
 tResult NVObjWorksheet::methodSplit( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Param 1: Row
 	qlong omRow;
 	if( getParamLong(pThreadData, 1, omRow) != qtrue) {
@@ -1255,7 +1255,7 @@ tResult NVObjWorksheet::methodSplit( tThreadData* pThreadData, qshort pParamCoun
 		return ERR_BAD_PARAMS;
 	}
 	int row = static_cast<int> (omRow) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 2: Column
 	EXTfldval colVal;
 	if ( getParamVar(pThreadData, 2, colVal) != qtrue ) {
@@ -1267,16 +1267,16 @@ tResult NVObjWorksheet::methodSplit( tThreadData* pThreadData, qshort pParamCoun
 		pThreadData->mExtraErrorText = "Unknown second parameter, col.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Call LibXL
 	sheet->split(row, col);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Groups rows from rowFirst to rowLast. Returns false if error occurs.
 tResult NVObjWorksheet::methodGroupRows( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Param 1: First row
 	qlong omFirstRow;
 	if( getParamLong(pThreadData, 1, omFirstRow) != qtrue) {
@@ -1284,7 +1284,7 @@ tResult NVObjWorksheet::methodGroupRows( tThreadData* pThreadData, qshort pParam
 		return ERR_BAD_PARAMS;
 	}
 	int firstRow = static_cast<int> (omFirstRow) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 2: Last row
 	qlong omLastRow;
 	if( getParamLong(pThreadData, 2, omLastRow) != qtrue) {
@@ -1292,7 +1292,7 @@ tResult NVObjWorksheet::methodGroupRows( tThreadData* pThreadData, qshort pParam
 		return ERR_BAD_PARAMS;
 	}
 	int lastRow = static_cast<int> (omLastRow) - 1; // Index off 0 for LibXL's sake
-	
+
 	qbool omCollapsed;
 	bool retBool;
 	if ( getParamBool(pThreadData, 2, omCollapsed) == qtrue ) {
@@ -1302,18 +1302,18 @@ tResult NVObjWorksheet::methodGroupRows( tThreadData* pThreadData, qshort pParam
 		// Call LibXL without page break param
 		retBool = sheet->groupRows(firstRow, lastRow);
 	}
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Groups columns from colFirst to colLast. Returns false if error occurs.
 tResult NVObjWorksheet::methodGroupCols( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Param 1: First col
 	EXTfldval firstColVal;
 	if ( getParamVar(pThreadData, 1, firstColVal) != qtrue ) {
@@ -1325,7 +1325,7 @@ tResult NVObjWorksheet::methodGroupCols( tThreadData* pThreadData, qshort pParam
 		pThreadData->mExtraErrorText = "Unknown second parameter, firstCol.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Param 2: Second col
 	EXTfldval lastColVal;
 	if ( getParamVar(pThreadData, 2, lastColVal) != qtrue ) {
@@ -1337,7 +1337,7 @@ tResult NVObjWorksheet::methodGroupCols( tThreadData* pThreadData, qshort pParam
 		pThreadData->mExtraErrorText = "Unknown second parameter, lastCol.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	qbool omCollapsed;
 	bool retBool;
 	if ( getParamBool(pThreadData, 3, omCollapsed) == qtrue ) {
@@ -1347,33 +1347,33 @@ tResult NVObjWorksheet::methodGroupCols( tThreadData* pThreadData, qshort pParam
 		// Call LibXL without page break param
 		retBool = sheet->groupCols(firstCol, lastCol);
 	}
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Clears cells in specified area.
 tResult NVObjWorksheet::methodClear( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Define all parameters
 	qlong omRowFirst, omRowLast;
 	EXTfldval colFirstVal, colLastVal; 
 	int rowFirst = 0, rowLast = MAX_ROWS, colFirst = 0, colLast = MAX_COLS;
-	
+
 	// Param 1: (Optional) First row to clear
 	if( getParamLong(pThreadData, 1, omRowFirst) == qtrue ) {
 		rowFirst = static_cast<int> (omRowFirst) - 1; // Index off 0 for LibXL's sake
 	}
-	
+
 	// Param 2: (Optional) Last row to clear
 	if( getParamLong(pThreadData, 2, omRowLast) == qtrue ) {
 		rowLast = static_cast<int> (omRowLast) - 1; // Index off 0 for LibXL's sake
 	}
-	
+
 	// Param 3: (Optional) First col to clear
 	if ( getParamVar(pThreadData, 3, colFirstVal) == qtrue ) {
 		colFirst = NVObjWorkbook::getColNumber(colFirstVal) - 1; // Index off 0 for LibXL's sake
@@ -1382,7 +1382,7 @@ tResult NVObjWorksheet::methodClear( tThreadData* pThreadData, qshort pParamCoun
 			return ERR_BAD_PARAMS;
 		}
 	} 
-	
+
 	// Param 4: (Optional) Last col to clear
 	if ( getParamVar(pThreadData, 4, colLastVal) == qtrue ) {
 		colLast = NVObjWorkbook::getColNumber(colLastVal) - 1; // Index off 0 for LibXL's sake
@@ -1391,52 +1391,52 @@ tResult NVObjWorksheet::methodClear( tThreadData* pThreadData, qshort pParamCoun
 			return ERR_BAD_PARAMS;
 		}
 	} 
-	
+
 	// Call LibXL
 	sheet->clear(rowFirst, rowLast, colFirst, colLast);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Inserts rows from rowFirst to rowLast. Returns false if error occurs.
 tResult NVObjWorksheet::methodInsertRow( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Define all parameters
 	qlong omRowFirst, omRowLast; 
 	int rowFirst, rowLast;
-	
+
 	// Param 1: First row to insert
 	if( getParamLong(pThreadData, 1, omRowFirst) != qtrue) {
 		pThreadData->mExtraErrorText = "First parameter, rowFirst, is required.";
 		return ERR_BAD_PARAMS;
 	}
 	rowFirst = static_cast<int> (omRowFirst) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 2: Last row to insert
 	if( getParamLong(pThreadData, 2, omRowLast) != qtrue) {
 		pThreadData->mExtraErrorText = "Second parameter, rowLast, is required.";
 		return ERR_BAD_PARAMS;
 	}
 	rowLast = static_cast<int> (omRowLast) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Call LibXL
 	bool retBool = sheet->insertRow(rowFirst, rowLast);
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Inserts cols from colFirst to colLast. Returns false if error occurs.
 tResult NVObjWorksheet::methodInsertCol( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Define all parameters
 	EXTfldval colFirstVal, colLastVal;
 	int colFirst, colLast;
-	
+
 	// Param 1: First col to insert
 	if ( getParamVar(pThreadData, 1, colFirstVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "First parameter, colFirst, is required.";
@@ -1447,7 +1447,7 @@ tResult NVObjWorksheet::methodInsertCol( tThreadData* pThreadData, qshort pParam
 		pThreadData->mExtraErrorText = "Unknown first parameter, colFirst.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Param 2: Last col to insert
 	if ( getParamVar(pThreadData, 2, colLastVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "Second parameter, colLast, is required.";
@@ -1458,57 +1458,57 @@ tResult NVObjWorksheet::methodInsertCol( tThreadData* pThreadData, qshort pParam
 		pThreadData->mExtraErrorText = "Unknown second parameter, colLast.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Call LibXL
 	bool retBool = sheet->insertCol(colFirst, colLast);
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Removes rows from rowFirst to rowLast. Returns false if error occurs.
 tResult NVObjWorksheet::methodRemoveRow( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Define all parameters
 	qlong omRowFirst, omRowLast; 
 	int rowFirst, rowLast;
-	
+
 	// Param 1: First row to remove
 	if( getParamLong(pThreadData, 1, omRowFirst) != qtrue) {
 		pThreadData->mExtraErrorText = "First parameter, rowFirst, is required.";
 		return ERR_BAD_PARAMS;
 	}
 	rowFirst = static_cast<int> (omRowFirst) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 2: Last row to remove
 	if( getParamLong(pThreadData, 2, omRowLast) != qtrue) {
 		pThreadData->mExtraErrorText = "Second parameter, rowLast, is required.";
 		return ERR_BAD_PARAMS;
 	}
 	rowLast = static_cast<int> (omRowLast) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Call LibXL
 	bool retBool = sheet->removeRow(rowFirst, rowLast);
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Removes cols from colFirst to colLast. Returns false if error occurs.
 tResult NVObjWorksheet::methodRemoveCol( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Define all parameters
 	EXTfldval colFirstVal, colLastVal;
 	int colFirst, colLast;
-	
+
 	// Param 1: First col to remove
 	if ( getParamVar(pThreadData, 1, colFirstVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "First parameter, colFirst, is required.";
@@ -1519,7 +1519,7 @@ tResult NVObjWorksheet::methodRemoveCol( tThreadData* pThreadData, qshort pParam
 		pThreadData->mExtraErrorText = "Unknown first parameter, colFirst.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Param 2: Last col to remove
 	if ( getParamVar(pThreadData, 2, colLastVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "Second parameter, colLast, is required.";
@@ -1530,52 +1530,52 @@ tResult NVObjWorksheet::methodRemoveCol( tThreadData* pThreadData, qshort pParam
 		pThreadData->mExtraErrorText = "Unknown second parameter, colLast.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Call LibXL
 	bool retBool = sheet->removeCol(colFirst, colLast);
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Sets repeated rows on each page from rowFirst to rowLast.
 tResult NVObjWorksheet::methodSetPrintRepeatRows( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Define all parameters
 	qlong omRowFirst, omRowLast; 
 	int rowFirst, rowLast;
-	
+
 	// Param 1: First row to repeat
 	if( getParamLong(pThreadData, 1, omRowFirst) != qtrue) {
 		pThreadData->mExtraErrorText = "First parameter, rowFirst, is required.";
 		return ERR_BAD_PARAMS;
 	}
 	rowFirst = static_cast<int> (omRowFirst) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 2: Last row to repeat
 	if( getParamLong(pThreadData, 2, omRowLast) != qtrue) {
 		pThreadData->mExtraErrorText = "Second parameter, rowLast, is required.";
 		return ERR_BAD_PARAMS;
 	}
 	rowLast = static_cast<int> (omRowLast) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Call LibXL
 	sheet->setPrintRepeatRows(rowFirst, rowLast);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Sets repeated columns on each page from colFirst to colLast.
 tResult NVObjWorksheet::methodSetPrintRepeatCols( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Define all parameters
 	EXTfldval colFirstVal, colLastVal;
 	int colFirst, colLast;
-	
+
 	// Param 1: First col to repeat
 	if ( getParamVar(pThreadData, 1, colFirstVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "First parameter, colFirst, is required.";
@@ -1586,7 +1586,7 @@ tResult NVObjWorksheet::methodSetPrintRepeatCols( tThreadData* pThreadData, qsho
 		pThreadData->mExtraErrorText = "Unknown first parameter, colFirst.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Param 2: Last col to repeat
 	if ( getParamVar(pThreadData, 2, colLastVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "Second parameter, colLast, is required.";
@@ -1597,35 +1597,35 @@ tResult NVObjWorksheet::methodSetPrintRepeatCols( tThreadData* pThreadData, qsho
 		pThreadData->mExtraErrorText = "Unknown second parameter, colLast.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Call LibXL
 	sheet->setPrintRepeatCols(colFirst, colLast);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Sets the print area
 tResult NVObjWorksheet::methodSetPrintArea( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Define all parameters
 	qlong omRowFirst, omRowLast;
 	EXTfldval colFirstVal, colLastVal; 
 	int rowFirst, rowLast, colFirst, colLast;
-	
+
 	// Param 1: First row for print area
 	if( getParamLong(pThreadData, 1, omRowFirst) != qtrue) {
 		pThreadData->mExtraErrorText = "First parameter, rowFirst, is required.";
 		return ERR_BAD_PARAMS;
 	}
 	rowFirst = static_cast<int> (omRowFirst) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 2: Last row for print area
 	if( getParamLong(pThreadData, 2, omRowLast) != qtrue) {
 		pThreadData->mExtraErrorText = "Second parameter, rowLast, is required.";
 		return ERR_BAD_PARAMS;
 	}
 	rowLast = static_cast<int> (omRowLast) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 3: First col for print area
 	if ( getParamVar(pThreadData, 3, colFirstVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "Third parameter, colFirst, is required.";
@@ -1636,7 +1636,7 @@ tResult NVObjWorksheet::methodSetPrintArea( tThreadData* pThreadData, qshort pPa
 		pThreadData->mExtraErrorText = "Unknown third parameter, colFirst.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Param 4: Last col for print area
 	if ( getParamVar(pThreadData, 4, colLastVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "Fourth parameter, colLast, is required.";
@@ -1647,40 +1647,40 @@ tResult NVObjWorksheet::methodSetPrintArea( tThreadData* pThreadData, qshort pPa
 		pThreadData->mExtraErrorText = "Unknown fourth parameter, colLast.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Call LibXL
 	sheet->setPrintArea(rowFirst, rowLast, colFirst, colLast);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Clears repeated rows and columns on each page.
 tResult NVObjWorksheet::methodClearPrintRepeats( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Call LibXL
 	sheet->clearPrintRepeats();
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Clears the print area.
 tResult NVObjWorksheet::methodClearPrintArea( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Call LibXL
 	sheet->clearPrintArea();
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Sets the named range. Returns false if error occurs. 
 tResult NVObjWorksheet::methodSetNamedRange( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Define all parameters
 	qlong omRowFirst, omRowLast;
 	EXTfldval nameVal, colFirstVal, colLastVal; 
 	int rowFirst, rowLast, colFirst, colLast;
 	std::wstring nameString;
-	
+
 	// Param 1: First row for print area
 	if( getParamVar(pThreadData, 1, nameVal) != qtrue) {
 		pThreadData->mExtraErrorText = "First parameter, name, is required.";
@@ -1691,21 +1691,21 @@ tResult NVObjWorksheet::methodSetNamedRange( tThreadData* pThreadData, qshort pP
 		pThreadData->mExtraErrorText = "Invalid First parameter. Name cannot be blank.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Param 2: First row for print area
 	if( getParamLong(pThreadData, 2, omRowFirst) != qtrue) {
 		pThreadData->mExtraErrorText = "Second parameter, rowFirst, is required.";
 		return ERR_BAD_PARAMS;
 	}
 	rowFirst = static_cast<int> (omRowFirst) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 3: Last row for print area
 	if( getParamLong(pThreadData, 3, omRowLast) != qtrue) {
 		pThreadData->mExtraErrorText = "Third parameter, rowLast, is required.";
 		return ERR_BAD_PARAMS;
 	}
 	rowLast = static_cast<int> (omRowLast) - 1; // Index off 0 for LibXL's sake
-	
+
 	// Param 4: First col for print area
 	if ( getParamVar(pThreadData, 4, colFirstVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "Fourth parameter, colFirst, is required.";
@@ -1716,7 +1716,7 @@ tResult NVObjWorksheet::methodSetNamedRange( tThreadData* pThreadData, qshort pP
 		pThreadData->mExtraErrorText = "Unknown fourth parameter, colFirst.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Param 5: Last col for print area
 	if ( getParamVar(pThreadData, 5, colLastVal) != qtrue ) {
 		pThreadData->mExtraErrorText = "Fifth parameter, colLast, is required.";
@@ -1727,25 +1727,25 @@ tResult NVObjWorksheet::methodSetNamedRange( tThreadData* pThreadData, qshort pP
 		pThreadData->mExtraErrorText = "Unknown fifth parameter, colLast.  Acceptable types are Integer and Character.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Call LibXL
 	bool retBool = sheet->setNamedRange(nameString.c_str(), rowFirst, rowLast, colFirst, colLast);
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 // Deletes the named range by name. Returns false if error occurs.
 tResult NVObjWorksheet::methodDelNamedRange( tThreadData* pThreadData, qshort pParamCount ) {
-	
+
 	// Define all parameters
 	EXTfldval nameVal; 
 	std::wstring nameString;
-	
+
 	// Param 1: First row for print area
 	if( getParamVar(pThreadData, 1, nameVal) != qtrue) {
 		pThreadData->mExtraErrorText = "First parameter, name, is required.";
@@ -1756,21 +1756,21 @@ tResult NVObjWorksheet::methodDelNamedRange( tThreadData* pThreadData, qshort pP
 		pThreadData->mExtraErrorText = "Invalid First parameter. Name cannot be blank.";
 		return ERR_BAD_PARAMS;
 	}
-	
+
 	// Call LibXL
 	bool retBool = sheet->delNamedRange(nameString.c_str());
-	
+
 	// Return value to Omnis
 	EXTfldval retVal;
 	getEXTFldValFromBool(retVal, retBool);
 	ECOaddParam(pThreadData->mEci, &retVal);
-	
+
 	return METHOD_DONE_RETURN;
 }
 
 /**************************************************************************************************
- **                              INTERNAL      METHODS                                           **
- **************************************************************************************************/
+**                              INTERNAL      METHODS                                           **
+**************************************************************************************************/
 
 bool NVObjWorksheet::checkDependencies() {
 	if (numFormats && book && sheet)

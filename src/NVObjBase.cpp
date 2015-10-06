@@ -48,9 +48,9 @@ void NVObjBase::copy( NVObjBase* pObj )
 {
 	qobjinst inst = mObjInst;
 	*this = *pObj;
-	
+
 	mObjInst = inst;
-    mErrorInst = pObj->mErrorInst;
+	mErrorInst = pObj->mErrorInst;
 }
 
 // Methods Available and Method Call Handling (These should be overriden by a sub-class)
@@ -73,28 +73,28 @@ void NVObjBase::callErrorMethod( tThreadData* pThreadData, tResult pError )
 	// If the method completed ok, then there is no need to check for errors.
 	if (pError == ERR_OK || pError == ERR_RETURN_ZERO || pError == METHOD_DONE_RETURN || pError == METHOD_OK)
 		return;
-	
+
 	std::string txt = translateObjectError(pError);
-	
+
 	// Error wasn't object specific, look for default error
 	if (txt.empty())
 		txt = translateDefaultError(pError);
-	
+
 	// Fill parameters for error method (ErrorCode, ErrorDesc, ExtraErrorText, MethodName)
 	EXTfldval params[4];
 	params[0].setLong( pError );
-	
+
 	getEXTFldValFromString(params[1], txt);
-	
+
 	if ( !(pThreadData->mExtraErrorText.empty()) )
 		getEXTFldValFromString(params[2], pThreadData->mExtraErrorText);
-	
+
 	if ( !(pThreadData->mCurMethodName.empty()) )
 		getEXTFldValFromString(params[3], pThreadData->mCurMethodName);
-	
+
 	// Select which instance to use for errors
 	qobjinst errInst = (mErrorInst) ? mErrorInst : mObjInst;
-	
+
 	// Call $error method
 	str31 s_error(initStr31("$error"));
 	// DOMETHOD_EXEC_QUEUE is undocumented. It queues the method call so it doesn't interrupt running code.
@@ -103,40 +103,40 @@ void NVObjBase::callErrorMethod( tThreadData* pThreadData, tResult pError )
 
 // Built in error codes
 std::string NVObjBase::translateDefaultError( OmnisTools::tResult pError ) {
-	
+
 	std::string txt;
 	switch (pError)
 	{
 		txt = "";
-		case ERR_OK:
-		case ERR_RETURN_ZERO:
-		case METHOD_DONE_RETURN:
-			break;
-		case ERR_METHOD_FAILED:
-			txt = "Method failed.";
-			break;
-		case ERR_BAD_METHOD:
-			txt = "Invalid method called. Internal method index error.";
-			break;
-		case ERR_BAD_PARAMS:
-			txt = "Invalid parameters";
-			break;
-		case ERR_NOMEMORY:
-			txt = "Out of memory.";
-			break;
-		case ERR_NOT_SUPPORTED:
-			txt = "The feature is not supported";
-			break;
-		case ERR_BAD_CALCULATION:
-			txt = "Calculation is invalid";
-			break;
-		case ERR_NOT_IMPLEMENTED:
-			txt = "Feature not implemented.";
-			break;
-		default:
-			break;
+	case ERR_OK:
+	case ERR_RETURN_ZERO:
+	case METHOD_DONE_RETURN:
+		break;
+	case ERR_METHOD_FAILED:
+		txt = "Method failed.";
+		break;
+	case ERR_BAD_METHOD:
+		txt = "Invalid method called. Internal method index error.";
+		break;
+	case ERR_BAD_PARAMS:
+		txt = "Invalid parameters";
+		break;
+	case ERR_NOMEMORY:
+		txt = "Out of memory.";
+		break;
+	case ERR_NOT_SUPPORTED:
+		txt = "The feature is not supported";
+		break;
+	case ERR_BAD_CALCULATION:
+		txt = "Calculation is invalid";
+		break;
+	case ERR_NOT_IMPLEMENTED:
+		txt = "Feature not implemented.";
+		break;
+	default:
+		break;
 	}
-	
+
 	return txt;
 }
 
